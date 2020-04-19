@@ -4,10 +4,7 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp
 {
-    public interface IMenu
+    class DwarfMenu
     {
-        ////void Add(T object);
-
-        void EnterMenu();
     }
 }

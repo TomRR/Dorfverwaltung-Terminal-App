@@ -9,6 +9,7 @@ namespace Dorfverwaltung_TerminalApp
         {
             bool beenden = true;
 
+
             //Option tribeOption = new Option();
             //Option dwarfOption = new Option();
 
@@ -26,14 +27,16 @@ namespace Dorfverwaltung_TerminalApp
             //var gimli = new Dwarf() { DwarfName = "Gimli", DwarfAge = 140, DwarfTribe = altobarden.TribeName, Inventory = new List<Weapon>() { w1, w2 } };
             //var zwingli = new Dwarf() { DwarfName = "Zwingli", DwarfAge = 70, DwarfTribe = altobarden.TribeName, Inventory = new List<Weapon>() { w3 } };
             //var gumli = new Dwarf() { DwarfName = "Gumli", DwarfAge = 163, DwarfTribe = elbknechte.TribeName, Inventory = new List<Weapon>() { w4, w5 } };
-
+            Option dwarfOption = new Option();
+            dwarfOption.setCurrentOpject(new Dwarf());
 
             do
             {
+                
                 string action;
                 Console.Write("\nIn welchen Gebiet moechtest du eine Aktion ausfuehren \n\tZwerge (dwarf)\n\tStaemme (tribe)\n\talles ausdrucken (printall) \n\tBeenden (x)\n\t-->");
                 action = Console.ReadLine();
-                if(action.Equals("dwarf")) { }
+                if(action.Equals("dwarf")) { dwarfOption.EnterMenu(); }
                 if(action.Equals("tribe")) { }
                 if(action.Equals("printall")) { }
                 if (action.Equals("x")) { beenden = false; }

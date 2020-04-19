@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp
 {
-    public class Dwarf : IMenu
+    public class Dwarf : IMenu, ICrudOptions
     {
         public string DwarfId { get; set; }
         public string DwarfName { get; set; }
@@ -14,7 +14,12 @@ namespace Dorfverwaltung_TerminalApp
         public List<Weapon> Inventory{ get; set; }
         //private Option option;
 
-        public void Add(Dwarf dwarf)
+        public void EnterMenu()
+        {
+              
+        }
+
+        public void Add()
         {
             //Console.Write("Wie soll der Zwerg heissen? ");
             //dwarf.DwarfName = option.StringInput();
@@ -32,13 +37,13 @@ namespace Dorfverwaltung_TerminalApp
             throw new NotImplementedException();
         }
 
-        public void ShowDetail()
+        public void ShowDetail(Dwarf dwarf)
         {
             Console.WriteLine(
-                "\n\tName: " + DwarfName +
-                "\n\tAge: " + DwarfAge +
-                "\n\tTitle: " + DwarfTitle +
-                "\n\tTribe: " + DwarfTribe
+                "\n\tName: " + dwarf.DwarfName +
+                "\n\tAge: " + dwarf.DwarfAge +
+                "\n\tTitle: " + dwarf.DwarfTitle +
+                "\n\tTribe: " + dwarf.DwarfTribe
                 );
             PrintInventory();
         }
@@ -54,6 +59,11 @@ namespace Dorfverwaltung_TerminalApp
             {
                 weapon.ShowDetail();
             }
+        }
+
+        public void ShowDetail()
+        {
+            throw new NotImplementedException();
         }
     }
 }

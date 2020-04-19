@@ -14,6 +14,8 @@ namespace Dorfverwaltung_TerminalApp
         public List<Dwarf> TribeMember { get; set; }
         public int TaxRate { get; set; }
 
+
+
         public void Add()
         {
             throw new NotImplementedException();
@@ -42,6 +44,11 @@ namespace Dorfverwaltung_TerminalApp
         private void PrintTribeMember()
         {
             
+        }
+
+        public void EnterMenu()
+        {
+            throw new NotImplementedException();
         }
     }
 }

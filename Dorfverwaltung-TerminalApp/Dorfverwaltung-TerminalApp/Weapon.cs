@@ -12,6 +12,11 @@ namespace Dorfverwaltung_TerminalApp
         public string Description { get; set; }
         public string OwnerId { get; set; }
 
+        public void EnterMenu()
+        {
+            Console.WriteLine("Hello");
+        }
+
         public void Add()
         {
             throw new NotImplementedException();

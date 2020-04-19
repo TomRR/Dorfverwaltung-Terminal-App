@@ -4,10 +4,11 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp
 {
-    public interface IMenu
+    interface ICrudOptions
     {
-        ////void Add(T object);
-
-        void EnterMenu();
+        void Add();
+        void Update();
+        void ShowDetail();
+        void Remove();
     }
 }
