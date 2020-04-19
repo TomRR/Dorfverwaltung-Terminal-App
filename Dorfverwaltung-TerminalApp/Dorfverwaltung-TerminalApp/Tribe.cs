@@ -9,46 +9,25 @@ namespace Dorfverwaltung_TerminalApp
         public int Id { get; set; }
         public string TribeName { get; set; }
         public string ExistSince { get; set; }
-        public Dwarf TribeLeader { get; set; }
+        public string TribeLeader { get; set; }
         public int isLeaderSince { get; set; }
         public List<Dwarf> TribeMember { get; set; }
 
 
-
-
-        public void Add()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Remove()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ShowDetail()
-        {
+        public void ShowTribeDetail()
+        { 
             Console.WriteLine(
                 "\n\tName: " + TribeName +
-                "\n\tAge: " + ExistSince +
-                "\n\tTitle: " + TribeLeader +
-                "\n\tTribe: " 
+                "\n\tExist Since: " + ExistSince +
+                "\n\tLeader: " + TribeLeader +
+                "\n\tHe is Leader since {0} Years" , isLeaderSince               
                 );
-        }
-
-        public void Update()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void PrintTribeMember()
-        {
+            foreach(var dwarf in TribeMember)
+            {
+                Console.WriteLine("\t\t - {0}", dwarf.DwarfName);
+            }
             
         }
-
-        public void EnterMenu()
-        {
-            throw new NotImplementedException();
-        }
     }
-}
+    }
+

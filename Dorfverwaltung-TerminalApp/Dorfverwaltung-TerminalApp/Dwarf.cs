@@ -30,7 +30,8 @@ namespace Dorfverwaltung_TerminalApp
                 DwarfName = name,
                 DwarfAge = age,
                 DwarfTitle = title,
-                DwarfTribe = tribe
+                DwarfTribe = tribe,
+                Inventory = new List<Weapon>() { },
             };
             dwarves.Add(newDwarf);
             return dwarves;
