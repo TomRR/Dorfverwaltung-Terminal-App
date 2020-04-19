@@ -12,11 +12,6 @@ namespace Dorfverwaltung_TerminalApp
         public string Description { get; set; }
         public string OwnerId { get; set; }
 
-        public void EnterMenu()
-        {
-            Console.WriteLine("Hello");
-        }
-
         public List<Weapon> Add(List<Weapon> weapons)
         {
             Console.WriteLine("Wie heisst der Zwerg:");

@@ -7,7 +7,7 @@ namespace Dorfverwaltung_TerminalApp
     public class Option
     {
         private ICrudOptions currentObject;
-        private List<Dwarf> dwarves;
+        public List<Dwarf> dwarves;
         public void Add(List<Dwarf> dwarves)
         {
             currentObject.Add(dwarves);

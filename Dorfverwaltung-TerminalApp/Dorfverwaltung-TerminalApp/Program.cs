@@ -16,7 +16,7 @@ namespace Dorfverwaltung_TerminalApp
             Weapon gimlisSword = new Weapon() { WeaponType = "Sword", MagicalValue = 15, Description = "Old Sword", OwnerId = "1" };
             Weapon zwinglisAxe = new Weapon() { WeaponType = "Axe", MagicalValue = 17, Description = "Shiny Axe", OwnerId = "2" };
             Weapon gumlisWand = new Weapon() { WeaponType = "Wand", MagicalValue = 45, Description = "Powerful Old Wand", OwnerId = "3" };
-            Weapon gumlisWarHammer = new Weapon() { WeaponType = "War Hammer", MagicalValue = 15, Description = "just an ordinary War Hammer", OwnerId = "3" };
+            Weapon gumlisWarHammer = new Weapon() { WeaponType = "War Hammer", MagicalValue = 15, Description = "normal War Hammer", OwnerId = "3" };
 
             Dwarf gimli = new Dwarf()
             {
@@ -87,10 +87,10 @@ namespace Dorfverwaltung_TerminalApp
             {
                 
                 string action;
-                Console.Write("\nIn welchen Gebiet moechtest du eine Aktion ausfuehren \n\tZwergen Menu (d)\n\tStaemme ausdrucken (tribe)\n\talles ausdrucken (p) \n\tBeenden (x)\n\t-->");
+                Console.Write("\nIn welchen Gebiet moechtest du eine Aktion ausfuehren \n\tZwergen Menu (d)\n\talles ausdrucken (p) \n\tBeenden (x)\n\t-->");
                 action = Console.ReadLine();
                 if(action.Equals("d")) { dwarfOption.EnterMenu(dwarves); }
-                if (action.Equals("t")) { tribe.ShowTribeDetail(); }
+                //if (action.Equals("t")) { tribe.ShowTribeDetail(); }
                 if (action.Equals("p")) { PrintAll(dwarves, tribeList);}
                 if (action.Equals("x")) { beenden = false; }
             } while (beenden);
