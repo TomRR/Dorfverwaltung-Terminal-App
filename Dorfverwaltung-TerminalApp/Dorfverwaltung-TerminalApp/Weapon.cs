@@ -8,8 +8,9 @@ namespace Dorfverwaltung_TerminalApp
     {
         public string WeaponType { get; set; }
         public int MagicalValue { get; set; }
-        public Dwarf dwarf { get; set; }
-        //public string Description { get; set; }
+
+        public string Description { get; set; }
+        public string OwnerId { get; set; }
 
         public void Add()
         {

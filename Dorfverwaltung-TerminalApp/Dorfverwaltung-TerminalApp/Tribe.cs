@@ -12,6 +12,7 @@ namespace Dorfverwaltung_TerminalApp
         public Dwarf TribeLeader { get; set; }
         public int isLeaderSince { get; set; }
         public List<Dwarf> TribeMember { get; set; }
+        public int TaxRate { get; set; }
 
         public void Add()
         {

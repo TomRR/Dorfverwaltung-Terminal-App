@@ -6,7 +6,7 @@ namespace Dorfverwaltung_TerminalApp
 {
     public class Dwarf : IMenu
     {
-        public string Id { get; set; }
+        public string DwarfId { get; set; }
         public string DwarfName { get; set; }
         public int DwarfAge { get; set; }
         public string DwarfTitle { get; set; }
