@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dorfverwaltung-TerminalApp", "Dorfverwaltung-TerminalApp\Dorfverwaltung-TerminalApp.csproj", "{220B262E-C970-4134-99B0-C2A55D74D29A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{220B262E-C970-4134-99B0-C2A55D74D29A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{220B262E-C970-4134-99B0-C2A55D74D29A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{220B262E-C970-4134-99B0-C2A55D74D29A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{220B262E-C970-4134-99B0-C2A55D74D29A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D633D2A-C9B6-4D2F-BA24-50DA784E1604}
+	EndGlobalSection
+EndGlobal
