@@ -4,66 +4,68 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp
 {
-    public class Dwarf : IMenu, ICrudOptions
+    public class Dwarf : ICrudOptions
     {
         public string DwarfId { get; set; }
         public string DwarfName { get; set; }
         public int DwarfAge { get; set; }
         public string DwarfTitle { get; set; }
         public string DwarfTribe { get; set; }
-        public List<Weapon> Inventory{ get; set; }
-        //private Option option;
-
-        public void EnterMenu()
-        {
-              
-        }
+        public List<Weapon> Inventory { get; set; }
 
         public void Add()
         {
-            //Console.Write("Wie soll der Zwerg heissen? ");
-            //dwarf.DwarfName = option.StringInput();
-            //Console.Write("Wie alt soll er sein? ");
-            //option.IntegerInput();
-            //Console.Write("Hat er einen Titel [y/n]?");
-            //option.StringInput();
-            //Console.Write("Zu Welche Stamm gehoert er? ");
-            //Console.Write("Moechtest du ihn eine oder mehrere Waffen geben? ");
-
-        }
-
-        public void Remove()
-        {
             throw new NotImplementedException();
         }
 
-        public void ShowDetail(Dwarf dwarf)
+        public void EnterMenu(List<Dwarf> dwarves)
         {
-            Console.WriteLine(
-                "\n\tName: " + dwarf.DwarfName +
-                "\n\tAge: " + dwarf.DwarfAge +
-                "\n\tTitle: " + dwarf.DwarfTitle +
-                "\n\tTribe: " + dwarf.DwarfTribe
-                );
-            PrintInventory();
-        }
-
-        public void Update()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void PrintInventory()
-        {
-            foreach (Weapon weapon in Inventory)
+            Console.Write("\nWas moechtest du machen \n\tZwerge hinzufuegen (add)\n\tZwerge hinzufuegen (remove)\n\tZwergeinfos ausdrucken (print) \n\tBeenden (any key)\n\t-->");
+            string action = Console.ReadLine();
+            switch (action)
             {
-                weapon.ShowDetail();
+                case "add":
+                    Add();
+                    break;
+                case "remove":
+                    Remove();
+                    break;
+                case "print":
+                    ShowDetail(dwarves);
+                    break;
+                case "x":
+                    break;
+                default: break;
             }
         }
 
-        public void ShowDetail()
-        {
-            throw new NotImplementedException();
+            public void PrintAll()
+            {
+                throw new NotImplementedException();
+            }
+
+            public void Remove()
+            {
+                throw new NotImplementedException();
+            }
+
+            public void ShowDetail(List<Dwarf> dwarves)
+            {
+                foreach (Dwarf dwarf in dwarves)
+                {
+                    Console.WriteLine(
+                    "\n\tName: " + dwarf.DwarfName +
+                    "\n\tAge: " + dwarf.DwarfAge +
+                    "\n\tTitle: " + dwarf.DwarfTitle +
+                    "\n\tTribe: " + dwarf.DwarfTribe
+                     );
+                }
+            }
+
+            public void Update()
+            {
+                throw new NotImplementedException();
+            }
         }
-    }
-}
+    } 
+

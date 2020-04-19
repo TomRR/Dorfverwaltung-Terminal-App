@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp
 {
-    public class Weapon : IMenu
+    public class Weapon
     {
         public string WeaponType { get; set; }
         public int MagicalValue { get; set; }

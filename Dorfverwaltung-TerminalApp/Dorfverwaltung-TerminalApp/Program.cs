@@ -8,43 +8,66 @@ namespace Dorfverwaltung_TerminalApp
         static void Main(string[] args)
         {
             bool beenden = true;
+            Option dwarfOption = new Option();
+            dwarfOption.setCurrentObject(new Dwarf());
+
+            Weapon gimlisAxe = new Weapon() { WeaponType = "Axe", MagicalValue = 12, Description = "crabbie Old Axe", OwnerId = "1" };
+            Weapon gimlisSword = new Weapon() { WeaponType = "Sword", MagicalValue = 15, Description = "Old Sword", OwnerId = "1" };
+            Weapon zwinglisAxe = new Weapon() { WeaponType = "Axe", MagicalValue = 17, Description = "Shiny Axe", OwnerId = "2" };
+            Weapon gumlisWand = new Weapon() { WeaponType = "Wand", MagicalValue = 45, Description = "Powerful Old Wand", OwnerId = "3" };
+            Weapon gumlisWarHammer = new Weapon() { WeaponType = "War Hammer", MagicalValue = 15, Description = "just an ordinary War Hammer", OwnerId = "3" };
+
+            Dwarf gimli = new Dwarf()
+            {
+                DwarfId = "1",
+                DwarfName = "Gimli",
+                DwarfAge = 140,
+                DwarfTribe = "Altobarden",
+                Inventory = new List<Weapon>() { gimlisAxe, gimlisSword },
+            };
+            Dwarf zwingli = new Dwarf()
+            {
+                DwarfId = "2",
+                DwarfName = "Zwingli",
+                DwarfAge = 70,
+                DwarfTribe = "Altobarden",
+                Inventory = new List<Weapon>() { zwinglisAxe },
+            };
+            Dwarf gumli = new Dwarf()
+            {
+                DwarfId = "3",
+                DwarfName = "Gumli",
+                DwarfAge = 163,
+                DwarfTitle = "Dwarf-Veteran",
+                DwarfTribe = "Elbknechte",
+                Inventory = new List<Weapon>() { gumlisWand, gumlisWarHammer },
+
+            };
+
+            List<Dwarf> dwarves = new List<Dwarf>
+            {
+                gumli, gimli, zwingli
+            };
 
 
             //Option tribeOption = new Option();
-            //Option dwarfOption = new Option();
-
-            ////Tribes
-            //Tribe altobarden = new Tribe() { TribeName = "Altobarden", ExistSince = "1247 ndK", isLeaderSince = 25 };
-            //Tribe elbknechte = new Tribe() { TribeName = "Elbknechte", ExistSince = "1023 ndK" };
-            //// Weapons
-            //var w1 = new Weapon() { WeaponType = "Axt", MagicalValue = 12 };
-            //var w2 = new Weapon() { WeaponType = "Schwert", MagicalValue = 15 };
-            //var w3 = new Weapon() { WeaponType = "Axt", MagicalValue = 17 };
-            //var w4 = new Weapon() { WeaponType = "Zauberstab", MagicalValue = 45 };
-            //var w5 = new Weapon() { WeaponType = "Streithammer", MagicalValue = 15 };
-
-            ////Dwarfs
-            //var gimli = new Dwarf() { DwarfName = "Gimli", DwarfAge = 140, DwarfTribe = altobarden.TribeName, Inventory = new List<Weapon>() { w1, w2 } };
-            //var zwingli = new Dwarf() { DwarfName = "Zwingli", DwarfAge = 70, DwarfTribe = altobarden.TribeName, Inventory = new List<Weapon>() { w3 } };
-            //var gumli = new Dwarf() { DwarfName = "Gumli", DwarfAge = 163, DwarfTribe = elbknechte.TribeName, Inventory = new List<Weapon>() { w4, w5 } };
-            Option dwarfOption = new Option();
-            dwarfOption.setCurrentOpject(new Dwarf());
+            //tribeOption.setCurrentObject(new Tribe());
 
             do
             {
                 
                 string action;
-                Console.Write("\nIn welchen Gebiet moechtest du eine Aktion ausfuehren \n\tZwerge (dwarf)\n\tStaemme (tribe)\n\talles ausdrucken (printall) \n\tBeenden (x)\n\t-->");
+                Console.Write("\nIn welchen Gebiet moechtest du eine Aktion ausfuehren \n\tZwergen Menu (d)\n\tStaemme ausdrucken (t)\n\talles ausdrucken (p) \n\tBeenden (x)\n\t-->");
                 action = Console.ReadLine();
-                if(action.Equals("dwarf")) { dwarfOption.EnterMenu(); }
-                if(action.Equals("tribe")) { }
-                if(action.Equals("printall")) { }
+                if(action.Equals("d")) { /*List<Dwarf> dwarves = GetListOfDwarf();*/  dwarfOption.EnterMenu(dwarves); }
+                //if(action.Equals("t")) { List<Tribe> tribes = GetListOfTribes(); tribeOption.EnterMenu(); }
+                if(action.Equals("p")) { }
                 if (action.Equals("x")) { beenden = false; }
             } while (beenden);
 
         }
 
-        private List<Dwarf> GetListOfDwarf()
+        public static List<Dwarf> GetListOfDwarf()
         {
             Weapon gimlisAxe = new Weapon() { WeaponType = "Axe", MagicalValue = 12, Description = "crabbie Old Axe", OwnerId = "1" };
             Weapon gimlisSword = new Weapon() { WeaponType = "Sword", MagicalValue = 15, Description = "Old Sword", OwnerId = "1" };
@@ -81,7 +104,7 @@ namespace Dorfverwaltung_TerminalApp
 
             return dwarfList;
         }
-        private List<Tribe> GetListOfTribes()
+        private static List<Tribe> GetListOfTribes()
         {
             List<Dwarf> dwarflist = GetListOfDwarf();
             List<Dwarf> altobardenMember = new List<Dwarf>();

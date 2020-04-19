@@ -6,8 +6,8 @@ namespace Dorfverwaltung_TerminalApp
 {
     public class Option
     {
-        private IMenu currentObject;
-
+        private ICrudOptions currentObject;
+        private List<Dwarf> dwarves;
         public void Add()
         {
             currentObject.Add();
@@ -15,23 +15,23 @@ namespace Dorfverwaltung_TerminalApp
 
         public void ShowDetail()
         {
-            currentObject.ShowDetail();
+            currentObject.ShowDetail(dwarves);
         }
         public void Remove()
         {
             currentObject.Remove();
         } 
-        public void EnterMenu()
+        public void EnterMenu(List<Dwarf> dwarves)
         {
-            currentObject.EnterMenu();
+            currentObject.EnterMenu(dwarves);
         }
 
-        public IMenu getCurrentObject()
+        public ICrudOptions getCurrentObject()
         {
             return currentObject;
         }
 
-        public void setCurrentOpject(IMenu currentObject)
+        public void setCurrentObject(ICrudOptions currentObject)
         {
             this.currentObject = currentObject;
         }

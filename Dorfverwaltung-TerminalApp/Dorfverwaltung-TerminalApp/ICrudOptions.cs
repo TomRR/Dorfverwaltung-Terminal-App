@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp
 {
-    interface ICrudOptions
+    public interface ICrudOptions : IMenu
     {
         void Add();
         void Update();
-        void ShowDetail();
+        void ShowDetail(List<Dwarf> dwarves);
         void Remove();
     }
 }

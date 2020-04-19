@@ -6,8 +6,7 @@ namespace Dorfverwaltung_TerminalApp
 {
     public interface IMenu
     {
-        ////void Add(T object);
-
-        void EnterMenu();
+        void EnterMenu(List<Dwarf> dwarves);
+        void PrintAll();
     }
 }

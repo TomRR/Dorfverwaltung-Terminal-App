@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp
 {
-    class Tribe : IMenu
+    class Tribe
     {
         public int Id { get; set; }
         public string TribeName { get; set; }
