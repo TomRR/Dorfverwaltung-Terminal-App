@@ -19,7 +19,7 @@ namespace Dorfverwaltung_TerminalApp
 
             Dwarf gimli = new Dwarf()
             {
-                DwarfId = "1",
+                DwarfId = 1,
                 DwarfName = "Gimli",
                 DwarfAge = 140,
                 DwarfTribe = "Altobarden",
@@ -27,7 +27,7 @@ namespace Dorfverwaltung_TerminalApp
             };
             Dwarf zwingli = new Dwarf()
             {
-                DwarfId = "2",
+                DwarfId = 2,
                 DwarfName = "Zwingli",
                 DwarfAge = 70,
                 DwarfTribe = "Altobarden",
@@ -35,7 +35,7 @@ namespace Dorfverwaltung_TerminalApp
             };
             Dwarf gumli = new Dwarf()
             {
-                DwarfId = "3",
+                DwarfId = 3,
                 DwarfName = "Gumli",
                 DwarfAge = 163,
                 DwarfTitle = "Dwarf-Veteran",
@@ -46,7 +46,7 @@ namespace Dorfverwaltung_TerminalApp
 
             List<Dwarf> dwarves = new List<Dwarf>
             {
-                gumli, gimli, zwingli
+                gimli, zwingli, gumli
             };
 
 
@@ -66,7 +66,7 @@ namespace Dorfverwaltung_TerminalApp
             } while (beenden);
 
         }
-
+        
         public static List<Dwarf> GetListOfDwarf()
         {
             Weapon gimlisAxe = new Weapon() { WeaponType = "Axe", MagicalValue = 12, Description = "crabbie Old Axe", OwnerId = "1" };
@@ -78,21 +78,21 @@ namespace Dorfverwaltung_TerminalApp
             List<Dwarf> dwarfList = new List<Dwarf>
             {
                 new Dwarf() {
-                    DwarfId = "1",
+                    DwarfId = 1,
                     DwarfName = "Gimli",
                     DwarfAge = 140,
                     DwarfTribe = "Altobarden",
                     Inventory = new List<Weapon>() { gimlisAxe, gimlisSword },
                     },
                 new Dwarf() {
-                    DwarfId = "2",
+                    DwarfId = 2,
                    DwarfName = "Zwingli",
                    DwarfAge = 70,
                    DwarfTribe = "Altobarden",
                    Inventory =  new List<Weapon>() { zwinglisAxe },
                    },
              new Dwarf() {
-                   DwarfId = "3",
+                   DwarfId = 3,
                    DwarfName = "Gumli",
                    DwarfAge = 163,
                    DwarfTitle = "Dwarf-Veteran",

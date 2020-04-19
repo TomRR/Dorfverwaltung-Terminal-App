@@ -8,18 +8,18 @@ namespace Dorfverwaltung_TerminalApp
     {
         private ICrudOptions currentObject;
         private List<Dwarf> dwarves;
-        public void Add()
+        public void Add(List<Dwarf> dwarves)
         {
-            currentObject.Add();
+            currentObject.Add(dwarves);
         }
 
         public void ShowDetail()
         {
             currentObject.ShowDetail(dwarves);
         }
-        public void Remove()
+        public void Remove(List<Dwarf> dwarves)
         {
-            currentObject.Remove();
+            currentObject.Remove(dwarves);
         } 
         public void EnterMenu(List<Dwarf> dwarves)
         {

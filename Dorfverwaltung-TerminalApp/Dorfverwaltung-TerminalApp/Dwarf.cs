@@ -6,16 +6,34 @@ namespace Dorfverwaltung_TerminalApp
 {
     public class Dwarf : ICrudOptions
     {
-        public string DwarfId { get; set; }
+        public int DwarfId { get; set; }
         public string DwarfName { get; set; }
         public int DwarfAge { get; set; }
         public string DwarfTitle { get; set; }
         public string DwarfTribe { get; set; }
         public List<Weapon> Inventory { get; set; }
+        private int ForceFactor { get; set; }
 
-        public void Add()
+        public List<Dwarf> Add(List<Dwarf> dwarves)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Wie heisst der Zwerg:");
+            string name = StringInput();
+            Console.WriteLine("Wie alt ist er");
+            int age = IntegerInput();
+            Console.WriteLine("Falls er einen Title hat, gebe ihn ein");
+            string title = StringInput();
+            Console.WriteLine("zu welchen Tribe gehoert er. Elbknechte oder Altobarden");
+            string tribe = StringInput();
+            Dwarf newDwarf = new Dwarf()
+            {
+                DwarfId = dwarves.Count + 1,
+                DwarfName = name,
+                DwarfAge = age,
+                DwarfTitle = title,
+                DwarfTribe = tribe
+            };
+            dwarves.Add(newDwarf);
+            return dwarves;
         }
 
         public void EnterMenu(List<Dwarf> dwarves)
@@ -25,10 +43,10 @@ namespace Dorfverwaltung_TerminalApp
             switch (action)
             {
                 case "add":
-                    Add();
+                    Add(dwarves);
                     break;
                 case "remove":
-                    Remove();
+                    Remove(dwarves);
                     break;
                 case "print":
                     ShowDetail(dwarves);
@@ -44,16 +62,26 @@ namespace Dorfverwaltung_TerminalApp
                 throw new NotImplementedException();
             }
 
-            public void Remove()
+            public List<Dwarf> Remove(List<Dwarf> dwarves)
             {
-                throw new NotImplementedException();
-            }
+                Console.WriteLine("Welchen Zwerg moechtest du entfernen: gebe die Id ein");
+                foreach(Dwarf dwarf in dwarves)
+                {
+                Console.WriteLine("(Id:{0}) {1}", dwarf.DwarfId, dwarf.DwarfName);                 
+                }
+                int id = IntegerInput() - 1;
+                dwarves.RemoveAt(id);
+            ShowDetail(dwarves);
+            return dwarves;
+
+        }
 
             public void ShowDetail(List<Dwarf> dwarves)
             {
                 foreach (Dwarf dwarf in dwarves)
                 {
                     Console.WriteLine(
+                    "\n\tName: " + dwarf.DwarfId +
                     "\n\tName: " + dwarf.DwarfName +
                     "\n\tAge: " + dwarf.DwarfAge +
                     "\n\tTitle: " + dwarf.DwarfTitle +
@@ -62,10 +90,27 @@ namespace Dorfverwaltung_TerminalApp
                 }
             }
 
-            public void Update()
+            public void Update(List<Dwarf> dwarves)
             {
                 throw new NotImplementedException();
             }
+        private string StringInput()
+        {
+            return Console.ReadLine();
         }
-    } 
+        private int IntegerInput()
+        {
+            while (true)
+                try
+                {
+                    return Convert.ToInt32(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Hier muss eine Zahl eingegeben werden\nWie alt ist er");
+                    {  };
+                }
+        }
+        }
+    }
 

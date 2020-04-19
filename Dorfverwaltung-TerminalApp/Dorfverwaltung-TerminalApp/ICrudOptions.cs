@@ -6,9 +6,9 @@ namespace Dorfverwaltung_TerminalApp
 {
     public interface ICrudOptions : IMenu
     {
-        void Add();
-        void Update();
+        List<Dwarf> Add(List<Dwarf> dwarves);
+        void Update(List<Dwarf> dwarves);
         void ShowDetail(List<Dwarf> dwarves);
-        void Remove();
+        List<Dwarf> Remove(List<Dwarf> dwarves);
     }
 }
