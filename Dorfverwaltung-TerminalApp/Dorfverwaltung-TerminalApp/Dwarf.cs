@@ -71,9 +71,8 @@ namespace Dorfverwaltung_TerminalApp
                 }
                 int id = IntegerInput() - 1;
                 dwarves.RemoveAt(id);
-            ShowDetail(dwarves);
-            return dwarves;
-
+                ShowDetail(dwarves);
+                return dwarves;
         }
 
             public void ShowDetail(List<Dwarf> dwarves)
@@ -90,10 +89,7 @@ namespace Dorfverwaltung_TerminalApp
                 }
             }
 
-            public void Update(List<Dwarf> dwarves)
-            {
-                throw new NotImplementedException();
-            }
+
         private string StringInput()
         {
             return Console.ReadLine();
@@ -107,10 +103,11 @@ namespace Dorfverwaltung_TerminalApp
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Hier muss eine Zahl eingegeben werden\nWie alt ist er");
+                    Console.WriteLine("Hier muss eine Zahl eingegeben werden");
                     {  };
                 }
         }
+
         }
     }
 

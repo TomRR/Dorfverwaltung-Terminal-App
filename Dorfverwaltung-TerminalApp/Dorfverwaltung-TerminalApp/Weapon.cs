@@ -17,29 +17,41 @@ namespace Dorfverwaltung_TerminalApp
             Console.WriteLine("Hello");
         }
 
-        public void Add()
+        public List<Weapon> Add(List<Weapon> weapons)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Wie heisst der Zwerg:");
+            string type = StringInput();
+            Console.WriteLine("Welchen Magischen Wert hat die Waffe");
+            int magicalValue = IntegerInput();
+            Console.WriteLine("Hier kannst du eine Beschreibung hinzufuegen");
+            string description = StringInput();
+
+            Weapon newWeapon = new Weapon()
+            {
+                WeaponType = type,
+                MagicalValue = magicalValue,
+                Description = description,
+            };
+            weapons.Add(newWeapon);
+            return weapons;
         }
 
-        public void Remove()
+        private string StringInput()
         {
-            throw new NotImplementedException();
+            return Console.ReadLine();
         }
-
-        public void ShowDetail()
+        private int IntegerInput()
         {
-            Console.WriteLine(
-                "\n\tName: " + WeaponType +
-                "\n\tAge: " + MagicalValue 
-                //"\n\tDescription: " + Description
-                );
-            
-        }
-
-        public void Update()
-        {
-            throw new NotImplementedException();
+            while (true)
+                try
+                {
+                    return Convert.ToInt32(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Hier muss eine Zahl eingegeben werden");
+                    { };
+                }
         }
     }
 }

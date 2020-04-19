@@ -9,6 +9,7 @@ namespace Dorfverwaltung_TerminalApp
         {
             bool beenden = true;
             Option dwarfOption = new Option();
+            Tribe tribe = new Tribe();
             dwarfOption.setCurrentObject(new Dwarf());
 
             Weapon gimlisAxe = new Weapon() { WeaponType = "Axe", MagicalValue = 12, Description = "crabbie Old Axe", OwnerId = "1" };
@@ -48,23 +49,72 @@ namespace Dorfverwaltung_TerminalApp
             {
                 gimli, zwingli, gumli
             };
+            List<Dwarf> altobardenMember = new List<Dwarf>();
+            List<Dwarf> elbknechteMember = new List<Dwarf>();
 
+            foreach (Dwarf dwarf in dwarves)
+            {
+                if (dwarf.DwarfTribe.Equals("Altobarden"))
+                {
+                    altobardenMember.Add(dwarf);
+                }
+                else if (dwarf.DwarfTribe.Equals("Elbknechte"))
+                {
+                    elbknechteMember.Add(dwarf);
+                }
+            }
+                Tribe altpbarden = new Tribe()
+                {
+                    TribeName = "Altobarden",
+                    ExistSince = "1247",
+                    TribeMember = altobardenMember,
 
-            //Option tribeOption = new Option();
-            //tribeOption.setCurrentObject(new Tribe());
+                };
+                Tribe elbknechte = new Tribe()
+                {
+                    TribeName = "Elbknechte",
+                    ExistSince = "1023",
+                    TribeMember = elbknechteMember,
 
-            do
+                };
+
+            List<Tribe> tribeList = new List<Tribe>
+                { altpbarden, elbknechte };
+            //PrintAll();
+            Console.WriteLine("die Gesamteinnahmen aus allen Staemmen betraegt: {0}", TotalTax(dwarves));
+                do
             {
                 
                 string action;
-                Console.Write("\nIn welchen Gebiet moechtest du eine Aktion ausfuehren \n\tZwergen Menu (d)\n\tStaemme ausdrucken (t)\n\talles ausdrucken (p) \n\tBeenden (x)\n\t-->");
+                Console.Write("\nIn welchen Gebiet moechtest du eine Aktion ausfuehren \n\tZwergen Menu (dwarf)\n\tStaemme ausdrucken (tribe)\n\talles ausdrucken (p) \n\tBeenden (x)\n\t-->");
                 action = Console.ReadLine();
                 if(action.Equals("d")) { /*List<Dwarf> dwarves = GetListOfDwarf();*/  dwarfOption.EnterMenu(dwarves); }
                 //if(action.Equals("t")) { List<Tribe> tribes = GetListOfTribes(); tribeOption.EnterMenu(); }
-                if(action.Equals("p")) { }
+                if(action.Equals("p")) { PrintAll(); }
                 if (action.Equals("x")) { beenden = false; }
             } while (beenden);
 
+        }
+        private static void PrintAll()
+        {
+
+        }
+
+        private static double TotalTax(List<Dwarf> dwarves)
+        {
+            double totalTax = 0;
+            double taxRate = 2.125;
+            int totalMagicalValue = 0;
+ 
+                    foreach(Dwarf dwarf in dwarves)
+                    {
+                        foreach(Weapon weapons in dwarf.Inventory)
+                        {
+                            totalMagicalValue += weapons.MagicalValue;
+                        }
+                    }
+
+            return totalMagicalValue * taxRate;
         }
         
         public static List<Dwarf> GetListOfDwarf()
@@ -129,14 +179,14 @@ namespace Dorfverwaltung_TerminalApp
                     TribeName = "Altobarden",
                     ExistSince = "1247",
                     TribeMember = altobardenMember,
-                    TaxRate = 2125
+      
                 },
                 new Tribe()
                 {
                     TribeName = "Elbknechte",
                     ExistSince = "1023",
                     TribeMember = elbknechteMember,
-                    TaxRate = 2125
+
                 }
             };
 
