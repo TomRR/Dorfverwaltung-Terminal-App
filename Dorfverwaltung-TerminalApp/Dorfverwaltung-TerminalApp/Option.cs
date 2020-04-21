@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dorfverwaltung_TerminalApp.Controller;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,32 +7,28 @@ namespace Dorfverwaltung_TerminalApp
 {
     public class Option
     {
-        private ICrudOptions currentObject;
-        public List<Dwarf> dwarves;
-        public void Add(List<Dwarf> dwarves)
+        private BaseController currentObject;
+
+        public void Add()
         {
-            currentObject.Add(dwarves);
+            currentObject.Add();
         }
 
         public void ShowDetail()
         {
-            currentObject.ShowDetail(dwarves);
+            currentObject.ShowDetail();
         }
-        public void Remove(List<Dwarf> dwarves)
+        public void Remove()
         {
-            currentObject.Remove(dwarves);
+            currentObject.Remove();
         } 
-        public void EnterMenu(List<Dwarf> dwarves)
-        {
-            currentObject.EnterMenu(dwarves);
-        }
 
-        public ICrudOptions getCurrentObject()
+        public BaseController getCurrentObject()
         {
             return currentObject;
         }
 
-        public void setCurrentObject(ICrudOptions currentObject)
+        public void setCurrentObject(BaseController currentObject)
         {
             this.currentObject = currentObject;
         }

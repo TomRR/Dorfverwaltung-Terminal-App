@@ -2,16 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dorfverwaltung_TerminalApp
+namespace Dorfverwaltung_TerminalApp.Controller
 {
-    public class Weapon
+    class WeaponController : BaseController
     {
-        public string WeaponType { get; set; }
-        public int MagicalValue { get; set; }
-
-        public string Description { get; set; }
-        public string OwnerId { get; set; }
-
         public List<Weapon> Add(List<Weapon> weapons)
         {
             Console.WriteLine("Wie heisst der Zwerg:");
@@ -20,33 +14,18 @@ namespace Dorfverwaltung_TerminalApp
             int magicalValue = IntegerInput();
             Console.WriteLine("Hier kannst du eine Beschreibung hinzufuegen");
             string description = StringInput();
+            Console.WriteLine("Hier kannst du eine Beschreibung hinzufuegen");
+            int ownerId = IntegerInput();
 
             Weapon newWeapon = new Weapon()
             {
                 WeaponType = type,
                 MagicalValue = magicalValue,
                 Description = description,
+                OwnerId = ownerId,
             };
             weapons.Add(newWeapon);
             return weapons;
-        }
-
-        private string StringInput()
-        {
-            return Console.ReadLine();
-        }
-        private int IntegerInput()
-        {
-            while (true)
-                try
-                {
-                    return Convert.ToInt32(Console.ReadLine());
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Hier muss eine Zahl eingegeben werden");
-                    { };
-                }
         }
     }
 }

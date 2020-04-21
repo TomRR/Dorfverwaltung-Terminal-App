@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp
 {
-    public interface IMenu
+    interface IDwarfMenu : IMenu
     {
-        void EnterMenu(List<Dwarf> dwarves);
-        void PrintAll();
+
     }
 }

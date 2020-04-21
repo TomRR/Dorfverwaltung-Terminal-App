@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dorfverwaltung_TerminalApp.Controller;
+using System;
 using System.Collections.Generic;
 
 namespace Dorfverwaltung_TerminalApp
@@ -10,7 +11,8 @@ namespace Dorfverwaltung_TerminalApp
             bool beenden = true;
             Option dwarfOption = new Option();
             Tribe tribe = new Tribe();
-            dwarfOption.setCurrentObject(new Dwarf());
+            //dwarfOption.setCurrentObject(new Dwarf());
+            
 
             Weapon gimlisAxe = new Weapon() { WeaponType = "Axe", MagicalValue = 12, Description = "crabbie Old Axe", OwnerId = "1" };
             Weapon gimlisSword = new Weapon() { WeaponType = "Sword", MagicalValue = 15, Description = "Old Sword", OwnerId = "1" };
@@ -44,7 +46,9 @@ namespace Dorfverwaltung_TerminalApp
                 Inventory = new List<Weapon>() { gumlisWand, gumlisWarHammer },
 
             };
-
+            DwarfController dc = new DwarfController();
+            TribeController tc = new TribeController();
+            tc.Add
             List<Dwarf> dwarves = new List<Dwarf>
             {
                 gimli, zwingli, gumli
