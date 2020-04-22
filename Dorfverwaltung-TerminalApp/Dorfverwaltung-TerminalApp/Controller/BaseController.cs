@@ -12,11 +12,11 @@ namespace Dorfverwaltung_TerminalApp.Controller
         public void Remove(int id) { }
         public void Update(int id) { }
 
-        public string StringInput()
+        protected string StringInput()
         {
             return Console.ReadLine();
         }
-        public int IntegerInput()
+        protected int IntegerInput()
         {
             while (true)
                 try

@@ -1,0 +1,12 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Dorfverwaltung_TerminalApp.Controller
+{
+    class Tester
+    {
+        Menu menu = new Menu();
+        menu.set
+    }
+}

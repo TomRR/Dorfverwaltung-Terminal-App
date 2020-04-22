@@ -1,11 +1,14 @@
 ﻿using Dorfverwaltung_TerminalApp.Controller;
 using System;
 using System.Collections.Generic;
+using Dorfverwaltung_TerminalApp.Controller.Menu;
 
 namespace Dorfverwaltung_TerminalApp
 {
     class Program
     {
+        Menu menu = new Menu();
+
         static void Main(string[] args)
         {
             bool beenden = true;

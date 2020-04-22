@@ -1,19 +1,17 @@
-﻿using Dorfverwaltung_TerminalApp.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dorfverwaltung_TerminalApp
+namespace VillageLibrary
 {
-    public class Dwarf : IVillage
+    class DwarfModel
     {
         public int DwarfId { get; set; }
         public string DwarfName { get; set; }
         public int DwarfAge { get; set; }
         public string DwarfTitle { get; set; }
         public string DwarfTribe { get; set; }
-        public List<Weapon> Inventory { get; set; }
+        public List<WeaponModel> Inventory { get; set; }
         public int ForceFactor { get; set; }
-        }
     }
-
+}
