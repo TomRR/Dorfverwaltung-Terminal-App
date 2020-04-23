@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dorfverwaltung_TerminalApp.Controller
-{
+namespace Dorfverwaltung_TerminalApp
+{ 
     class WeaponController
     {
-        public IKingdom Add()
+        public Model AddModel()
         {
 
             Console.WriteLine("Wie heisst der Zwerg:");
@@ -28,12 +28,12 @@ namespace Dorfverwaltung_TerminalApp.Controller
             return newWeapon;
         }
 
-        public void EnterMenu(List<IKingdom> kingdomData)
+        public void EnterMenu(List<Model> kingdomData)
         {
             Console.WriteLine("Weapon");
         }
 
-        public void PrintAll(List<IKingdom> kingdomData)
+        public void PrintAll(List<Model> kingdomData)
         {
             throw new NotImplementedException();
         }
@@ -43,7 +43,7 @@ namespace Dorfverwaltung_TerminalApp.Controller
             throw new NotImplementedException();
         }
 
-        public void ShowDetail(List<IKingdom> kingdomData)
+        public void ShowDetail(List<Model> kingdomData)
         {
             throw new NotImplementedException();
         }

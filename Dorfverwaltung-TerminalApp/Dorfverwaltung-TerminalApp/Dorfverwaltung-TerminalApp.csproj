@@ -6,9 +6,4 @@
     <RootNamespace>Dorfverwaltung_TerminalApp</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Controller\" />
-  </ItemGroup>
-
 </Project>

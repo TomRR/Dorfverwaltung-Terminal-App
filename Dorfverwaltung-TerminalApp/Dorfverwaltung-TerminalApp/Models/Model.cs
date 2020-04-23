@@ -6,6 +6,5 @@ namespace Dorfverwaltung_TerminalApp
 {
     abstract class Model
     {
-        
     }
 }
