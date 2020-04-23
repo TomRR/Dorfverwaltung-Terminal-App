@@ -6,7 +6,7 @@ namespace Dorfverwaltung_TerminalApp.View
 {
     class DwarfView : IView
     {
-        private DwarfController dwarfController;
+        private readonly DwarfController dwarfController;
         public void EnterMenu(List<Model> data)
         {
             bool furtherOn = true;

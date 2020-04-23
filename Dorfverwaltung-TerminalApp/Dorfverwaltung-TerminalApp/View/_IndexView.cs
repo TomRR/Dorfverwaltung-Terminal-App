@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Dorfverwaltung_TerminalApp.View
@@ -7,9 +8,9 @@ namespace Dorfverwaltung_TerminalApp.View
     class _IndexView : IView
     {
         private static readonly double taxRate = 2.125;
-        private DwarfView dwarfView;
-        private TribeView tribeView;
-        private WeaponView weaponView;
+        private readonly DwarfView dwarfView;
+        private readonly TribeView tribeView;
+        private readonly WeaponView weaponView;
         public void EnterMenu(List<Model> data)
         {
             bool furtherOn = true;
@@ -52,6 +53,10 @@ namespace Dorfverwaltung_TerminalApp.View
             //}
             //List<Weapon> weapons = data.FindAll()
             //TotalTax()
+        }
+        private bool FindWeapons(List<Model> data)
+        {
+            return true;//data.OfType<Weapon>;
         }
         private double TotalTax(List<Weapon> weapons)
         {

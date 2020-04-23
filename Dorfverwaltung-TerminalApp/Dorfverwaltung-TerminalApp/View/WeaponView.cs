@@ -6,7 +6,7 @@ namespace Dorfverwaltung_TerminalApp.View
 {
     class WeaponView : IView
     {
-        private WeaponController weaponController;
+        private readonly WeaponController weaponController;
         public void EnterMenu(List<Model> data)
         {
             bool furtherOn = true;
