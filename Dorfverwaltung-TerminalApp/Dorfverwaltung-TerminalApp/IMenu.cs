@@ -6,5 +6,6 @@ namespace Dorfverwaltung_TerminalApp
 {
     interface IMenu
     {
+        void EnterMenu(List<IKingdom> kingdomData);
     }
 }

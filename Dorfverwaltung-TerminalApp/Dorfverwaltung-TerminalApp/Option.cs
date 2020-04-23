@@ -1,36 +1,18 @@
-﻿using Dorfverwaltung_TerminalApp.Controller;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Dorfverwaltung_TerminalApp
 {
-    public class Option
+    class Option
     {
-        private BaseController currentObject;
+        private IKingdom currentOption;
 
-        public void Add()
-        {
-            currentObject.Add();
-        }
-
-        public void ShowDetail()
-        {
-            currentObject.ShowDetail();
-        }
-        public void Remove()
-        {
-            currentObject.Remove();
-        } 
-
-        public BaseController getCurrentObject()
-        {
-            return currentObject;
-        }
-
-        public void setCurrentObject(BaseController currentObject)
-        {
-            this.currentObject = currentObject;
-        }
+        //public void Add() { currentOption.Add(); }
+        public void EnterMenu(List<IKingdom> kingdomData) { currentOption.EnterMenu(kingdomData); }
+        //public IKingdom getOption() { return currentOption; }
+        public void setOption(IKingdom currentOption) { this.currentOption = currentOption; }
     }
 }
+
