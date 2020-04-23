@@ -14,6 +14,9 @@ namespace Dorfverwaltung_TerminalApp
         public string DwarfTribe { get; set; }
         public List<Weapon> Inventory { get; set; }
         public int ForceFactor { get; set; }
-        }
+
+        public void Ad
+
     }
+}
 
