@@ -11,14 +11,14 @@ namespace Dorfverwaltung_TerminalApp
         {
 
             Option dwarfOption = new Option();
-            dwarfOption.setOption(new DwarfController());
+            dwarfOption.setOption(new Dwarf());
             Option tribeOption = new Option();
-            tribeOption.setOption(new Tribe());
-            Option weaponOption = new Option();
-            weaponOption.setOption(new Weapon());
+            //tribeOption.setOption(new Tribe());
+            //Option weaponOption = new Option();
+            //weaponOption.setOption(new Weapon());
 
             Data data = new Data();
-            List<IKingdom> kingdomData = data.AddKingdomData();
+            List<Model> kingdomData = data.AddKingdomData();
 
 
             bool furtherOn = true;
@@ -34,12 +34,12 @@ namespace Dorfverwaltung_TerminalApp
                     case "dwarf":
                         dwarfOption.EnterMenu(kingdomData);
                         break;
-                    case "tribe":
-                        tribeOption.EnterMenu(kingdomData);
-                        break;
-                    case "weapon":
-                        weaponOption.EnterMenu(kingdomData);
-                        break;
+                    //case "tribe":
+                    //    tribeOption.EnterMenu(kingdomData);
+                    //    break;
+                    //case "weapon":
+                    //    weaponOption.EnterMenu(kingdomData);
+                    //    break;
                     case "print":
                         PrintAll(kingdomData);
                         break;
@@ -54,7 +54,7 @@ namespace Dorfverwaltung_TerminalApp
 
         }
 
-        private static void PrintAll(List<IKingdom> kingdomData)
+        private static void PrintAll(List<Model> kingdomData)
         {
             //Console.WriteLine("die Gesamteinnahmen aus allen Staemmen betraegt: {0}", TotalTaxPerDwarfList());
             //foreach (Tribe tribe in tribeList)

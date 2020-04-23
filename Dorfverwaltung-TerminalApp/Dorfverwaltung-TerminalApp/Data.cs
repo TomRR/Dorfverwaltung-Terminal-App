@@ -93,25 +93,25 @@ namespace Dorfverwaltung_TerminalApp
             return tribeList;
         }
 
-        public List<IKingdom> AddKingdomData()
+        public List<Model> AddKingdomData()
         {
             List<Dwarf> dwarves = getDwarfList();
             List<Weapon> weapons = getWeaponList();
             List<Tribe> tribes = getTribeList();
 
-            List<IKingdom> kingdom = new List<IKingdom>();
+            List<Model> kingdom = new List<Model>();
             foreach (Dwarf dwarf in dwarves)
             {
                 kingdom.Add(dwarf);
             }
-            foreach (Weapon weapon in weapons)
-            {
-                kingdom.Add(weapon);
-            }
-            foreach (Tribe tribe in tribes)
-            {
-                kingdom.Add(tribe);
-            }
+            //foreach (Weapon weapon in weapons)
+            //{
+            //    kingdom.Add(weapon);
+            //}
+            //foreach (Tribe tribe in tribes)
+            //{
+            //    kingdom.Add(tribe);
+            //}
             return kingdom;
         }
     }

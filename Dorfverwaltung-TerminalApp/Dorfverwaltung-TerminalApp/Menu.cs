@@ -7,12 +7,12 @@ namespace Dorfverwaltung_TerminalApp
 {
     class Option
     {
-        private IKingdom currentOption;
+        private Model currentOption;
 
         //public void Add() { currentOption.Add(); }
-        public void EnterMenu(List<IKingdom> kingdomData) { currentOption.EnterMenu(kingdomData); }
+        public void EnterMenu(List<Model> kingdomData) { currentOption.EnterMenu(kingdomData); }
         //public IKingdom getOption() { return currentOption; }
-        public void setOption(IKingdom currentOption) { this.currentOption = currentOption; }
+        public void setOption(Model currentOption) { this.currentOption = currentOption; }
     }
 }
 

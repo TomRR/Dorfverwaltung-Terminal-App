@@ -4,8 +4,7 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp
 {
-    abstract class Model
+    class Controller
     {
-        
     }
 }
