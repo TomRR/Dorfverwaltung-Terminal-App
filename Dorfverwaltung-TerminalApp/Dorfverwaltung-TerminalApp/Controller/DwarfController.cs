@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dorfverwaltung_TerminalApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,6 +8,7 @@ namespace Dorfverwaltung_TerminalApp
     class DwarfController : Controller
     {
         private Dwarf dwarf = new Dwarf();
+        
 
 
         public override Model AddModel()
@@ -33,11 +35,11 @@ namespace Dorfverwaltung_TerminalApp
 
 
 
-        public void PrintAll(List<Model> kingdomData)
+        public void PrintAll(List<Model> data)
         {
-            foreach (Model kingdom in kingdomData)
+            foreach (Model model in data)
             {
-                if (kingdom is Dwarf dwarf)
+                if (model is Dwarf dwarf)
                 {
                     Console.WriteLine(
                     "\n\tId: " + dwarf.DwarfId +
@@ -50,16 +52,20 @@ namespace Dorfverwaltung_TerminalApp
             }
         }
 
-        public override void Remove(List<Model> kingdomData)
+        public override void Remove(List<Model> data)
         {
-            //    //Console.WriteLine("Welchen Zwerg moechtest du entfernen: gebe die Id ein");
-            //    //foreach (Dwarf dwarf in dwarves)
-            //    //{
-            //    //    Console.WriteLine("(Id:{0}) {1}", dwarf.DwarfId, dwarf.DwarfName);
-            //    //}
-            //    //int id = IntegerInput() - 1;
-            //    //dwarves.RemoveAt(id);
-            //    //ShowDetail(dwarves);
+            Console.WriteLine("Welchen Zwerg moechtest du entfernen: gebe die Id ein");
+            foreach (Model model in data)
+            {
+                if (model is Dwarf dwarf)
+                {
+                    Console.WriteLine("(Id:{0}) {1}", dwarf.DwarfId, dwarf.DwarfName);
+                }
+            }
+                int id = IntegerInput() - 1;
+                data.RemoveAt(id);
+                PrintAll(data);
+            
         }
 
         public override void ShowDetail(List<Model> kingdomData)

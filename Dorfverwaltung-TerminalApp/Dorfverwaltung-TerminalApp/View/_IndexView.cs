@@ -8,9 +8,9 @@ namespace Dorfverwaltung_TerminalApp.View
     class _IndexView : IView
     {
         private static readonly double taxRate = 2.125;
-        private readonly DwarfView dwarfView;
-        private readonly TribeView tribeView;
-        private readonly WeaponView weaponView;
+        private readonly DwarfView dwarfView = new DwarfView();
+        private readonly TribeView tribeView = new TribeView();
+        private readonly WeaponView weaponView = new WeaponView();
         public void EnterMenu(List<Model> data)
         {
             bool furtherOn = true;

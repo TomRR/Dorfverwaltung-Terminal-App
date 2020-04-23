@@ -6,7 +6,7 @@ namespace Dorfverwaltung_TerminalApp.View
 {
     class DwarfView : IView
     {
-        private readonly DwarfController dwarfController;
+        private readonly DwarfController dwarfController = new DwarfController();
         public void EnterMenu(List<Model> data)
         {
             bool furtherOn = true;
@@ -20,7 +20,7 @@ namespace Dorfverwaltung_TerminalApp.View
                         data.Add(dwarfController.AddModel());
                         break;
                     case "remove":
-
+                        dwarfController.Remove(data);
                         break;
                     case "show":
                         dwarfController.ShowDetail(data);
