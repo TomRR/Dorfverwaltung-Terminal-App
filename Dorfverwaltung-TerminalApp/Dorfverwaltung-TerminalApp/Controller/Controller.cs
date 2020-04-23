@@ -10,6 +10,7 @@ namespace Dorfverwaltung_TerminalApp
         public abstract Model AddModel();
         public abstract void ShowDetail(List<Model> kingdomData);
         public abstract void Remove(List<Model> kingdomData);
+        public abstract void PrintAll(List<Model> kingdomData);
 
 
 

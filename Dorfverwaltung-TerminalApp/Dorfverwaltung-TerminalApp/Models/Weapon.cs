@@ -6,6 +6,8 @@ namespace Dorfverwaltung_TerminalApp
 {
     class Weapon : Model
     {
+        public int Id { get; set; }
+        public string WeaponName { get; set; }
         public string WeaponType { get; set; }
         public int MagicalValue { get; set; }
         public string Description { get; set; }

@@ -1,5 +1,4 @@
-﻿using Dorfverwaltung_TerminalApp.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,9 +6,7 @@ namespace Dorfverwaltung_TerminalApp
 {
     class DwarfController : Controller
     {
-        private Dwarf dwarf = new Dwarf();
         
-
 
         public override Model AddModel()
         {
@@ -35,7 +32,7 @@ namespace Dorfverwaltung_TerminalApp
 
 
 
-        public void PrintAll(List<Model> data)
+        public override void PrintAll(List<Model> data)
         {
             foreach (Model model in data)
             {
@@ -54,27 +51,23 @@ namespace Dorfverwaltung_TerminalApp
 
         public override void Remove(List<Model> data)
         {
+            GetDwarfIdAndName(data);
             Console.WriteLine("Welchen Zwerg moechtest du entfernen: gebe die Id ein");
-            foreach (Model model in data)
-            {
-                if (model is Dwarf dwarf)
-                {
-                    Console.WriteLine("(Id:{0}) {1}", dwarf.DwarfId, dwarf.DwarfName);
-                }
-            }
+            
                 int id = IntegerInput() - 1;
                 data.RemoveAt(id);
                 PrintAll(data);
             
         }
 
-        public override void ShowDetail(List<Model> kingdomData)
+        public override void ShowDetail(List<Model> data)
         {
-            foreach (Model kingdom in kingdomData)
+            GetDwarfIdAndName(data);
+            foreach (Model model in data)
             {
-                if (kingdom is Dwarf dwarf)
+                if (model is Dwarf dwarf)
                 {
-                    Console.WriteLine("welchen Zwerg suchst du?");
+                    Console.WriteLine("welchen Zwerg suchst du? (Namen eingeben)");
                     string name = Console.ReadLine().ToLower();
                     if (name == dwarf.DwarfName.ToLower())
                     {
@@ -91,6 +84,17 @@ namespace Dorfverwaltung_TerminalApp
                         Console.WriteLine("Der Zwerg konnte nicht gefunden werden. Versuch es erneut oder druecke X");
                     }
 
+                }
+            }
+        }
+        private void GetDwarfIdAndName(List<Model> data)
+        {
+            foreach (Model model in data)
+            {
+                if (model is Dwarf dwarf)
+                {
+                    Console.WriteLine("(Id:{0}) {1} ", dwarf.DwarfId, dwarf.DwarfName);
+                    
                 }
             }
         }

@@ -6,7 +6,7 @@ namespace Dorfverwaltung_TerminalApp.View
 {
     class TribeView : IView
     {
-        private readonly TribeController tribeController;
+        private readonly TribeController tribeController = new TribeController();
         public void EnterMenu(List<Model> data)
         {
             bool furtherOn = true;

@@ -4,12 +4,11 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp
 { 
-    class WeaponController
+    class WeaponController : Controller
     {
-        public Model AddModel()
+        public override Model AddModel()
         {
-
-            Console.WriteLine("Wie heisst der Zwerg:");
+            Console.WriteLine("Wass fuer ein Waffentyp:");
             string type = Console.ReadLine();
             Console.WriteLine("Welchen Magischen Wert hat die Waffe");
             int magicalValue = Convert.ToInt32(Console.ReadLine());
@@ -28,24 +27,67 @@ namespace Dorfverwaltung_TerminalApp
             return newWeapon;
         }
 
-        public void EnterMenu(List<Model> kingdomData)
+
+        public override void PrintAll(List<Model> data)
         {
-            Console.WriteLine("Weapon");
+            foreach (Model model in data)
+            {
+                if (model is Weapon weapon)
+                {
+                    Console.WriteLine(
+                    "\n\tId: " + weapon.WeaponType +
+                    "\n\tName: " + weapon.MagicalValue +
+                    "\n\tAge: " + weapon.Description
+                     );
+                }
+            }
         }
 
-        public void PrintAll(List<Model> kingdomData)
+        public override void Remove(List<Model> data)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Welchen Waffe moechtest du entfernen: gebe die Id ein");
+            PrintIdAndName(data);
+            int id = IntegerInput() - 1;
+            data.RemoveAt(id);
+            PrintAll(data);
         }
 
-        public void Remove(int id)
+        public override void ShowDetail(List<Model> data)
         {
-            throw new NotImplementedException();
+            PrintIdAndName(data);
+            foreach (Model model in data)
+            {
+                if (model is Weapon weapon)
+                {
+                    Console.WriteLine("welche Waffe suchst du? (Id eingeben)");
+                    int id = IntegerInput();
+                    if (id == weapon.Id)
+                    {
+                        Console.WriteLine(
+                            "\n\tId: " + weapon.WeaponType +
+                            "\n\tName: " + weapon.MagicalValue +
+                            "\n\tAge: " + weapon.Description
+                            );
+                    }
+                    else
+                    {
+                        Console.WriteLine("Waffe konnte nicht gefunden werden. Versuch es erneut oder druecke X");
+                    }
+
+                }
+            }
         }
 
-        public void ShowDetail(List<Model> kingdomData)
+        private void PrintIdAndName(List<Model> data)
         {
-            throw new NotImplementedException();
+            foreach (Model model in data)
+            {
+                if (model is Weapon weapon)
+                {
+                    Console.WriteLine("(Id:{0}) {1} ", weapon.Id, weapon.WeaponType);
+
+                }
+            }
         }
     }
 }
