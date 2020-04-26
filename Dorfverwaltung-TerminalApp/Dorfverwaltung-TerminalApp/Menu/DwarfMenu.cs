@@ -7,7 +7,7 @@ namespace Dorfverwaltung_TerminalApp.View
     class DwarfMenu : IMenu
     {
         private readonly DwarfController dwarfController = new DwarfController();
-        public void EnterMenu(List<Model> data)
+        public List<Model> EnterMenu(List<Model> data)
         {
             bool furtherOn = true;
             do
@@ -36,6 +36,7 @@ namespace Dorfverwaltung_TerminalApp.View
                         break;
                 }
             } while (furtherOn);
+            return data;
         }
     }
 }

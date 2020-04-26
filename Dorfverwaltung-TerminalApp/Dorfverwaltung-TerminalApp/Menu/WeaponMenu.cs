@@ -8,7 +8,7 @@ namespace Dorfverwaltung_TerminalApp.View
     {
         private readonly WeaponController weaponController = new WeaponController();
 
-        public void EnterMenu(List<Model> weapons)
+        public List<Model> EnterMenu(List<Model> weapons)
         {          
             
             bool furtherOn = true;
@@ -38,6 +38,7 @@ namespace Dorfverwaltung_TerminalApp.View
                         break;
                 }
             } while (furtherOn);
+            return weapons;
         }
     }
 }

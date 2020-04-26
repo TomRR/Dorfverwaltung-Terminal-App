@@ -11,12 +11,14 @@ namespace Dorfverwaltung_TerminalApp.View
         private readonly DwarfMenu dwarfView = new DwarfMenu();
         private readonly TribeMenu tribeView = new TribeMenu();
         private readonly WeaponMenu weaponView = new WeaponMenu();
-        public void EnterMenu(List<Model> data)
+        public List<Model> EnterMenu(List<Model> data)
         {
             List<Model> weapons = new List<Model>();
             List<Model> dwarves = new List<Model>();
             List<Model> tribes = new List<Model>();
-            
+            List<Model> kingdom = data;
+
+
             if (weapons.Count == 0)
             {
                 weapons = LoadWeaponList(data);
@@ -36,7 +38,7 @@ namespace Dorfverwaltung_TerminalApp.View
                 switch (action)
                 {
                     case "dwarf":
-                        dwarfView.EnterMenu(data);
+                        data = dwarfView.EnterMenu(data);
                         break;
                     case "tribe":
                         tribeView.EnterMenu(data);
@@ -55,12 +57,20 @@ namespace Dorfverwaltung_TerminalApp.View
                         break;
                 }
             } while (furtherOn);
+            return data;
         }
         private void PrintAll(List<Model> data)
         {
             int idDwarf = 1;
             List<Model> weapons = LoadWeaponList(data);
             List<Model> dwarves = LoadDwarfList(data);
+            foreach(Model model in data)
+            {
+                if(model is Tribe tribe)
+                {
+
+                }
+            }
             foreach(Dwarf dwarf in dwarves)
             {
                 Console.WriteLine(
@@ -116,7 +126,7 @@ namespace Dorfverwaltung_TerminalApp.View
             return dwarves;
         }
 
-        public StringBuilder PrintWeapon(List<Model> weapons, Dwarf dwarf)
+        private StringBuilder PrintWeapon(List<Model> weapons, Dwarf dwarf)
         {
             StringBuilder sb = new StringBuilder();
 

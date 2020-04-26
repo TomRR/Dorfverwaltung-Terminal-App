@@ -7,7 +7,7 @@ namespace Dorfverwaltung_TerminalApp.View
     class TribeMenu : IMenu
     {
         private readonly TribeController tribeController = new TribeController();
-        public void EnterMenu(List<Model> data)
+        public List<Model> EnterMenu(List<Model> data)
         {
             bool furtherOn = true;
             do
@@ -35,6 +35,7 @@ namespace Dorfverwaltung_TerminalApp.View
                         break;
                 }
             } while (furtherOn);
+            return data;
         }
     }
 }

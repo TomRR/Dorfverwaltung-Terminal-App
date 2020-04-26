@@ -6,6 +6,6 @@ namespace Dorfverwaltung_TerminalApp.View
 {
     interface IMenu
     {
-        void EnterMenu(List<Model> data);
+        List<Model> EnterMenu(List<Model> data);
     }
 }
