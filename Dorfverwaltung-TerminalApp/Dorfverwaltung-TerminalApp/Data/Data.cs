@@ -8,11 +8,11 @@ namespace Dorfverwaltung_TerminalApp
     {
         private List<Weapon> getWeaponList()
         {
-            Weapon gimlisAxe = new Weapon() { Id = 1, WeaponName = "Gimli's Axe", WeaponType = "Axe", MagicalValue = 12, Description = "crabbie Old Axe", OwnerId = "1" };
-            Weapon gimlisSword = new Weapon() { Id = 2, WeaponName = "Gimli's Sword", WeaponType = "Sword", MagicalValue = 15, Description = "Old Sword", OwnerId = "1" };
-            Weapon zwinglisAxe = new Weapon() { Id = 3, WeaponName = "Zwingli's Axe", WeaponType = "Axe", MagicalValue = 17, Description = "Shiny Axe", OwnerId = "2" };
-            Weapon gumlisWand = new Weapon() { Id = 4, WeaponName = "Gumli's Wand", WeaponType = "Wand", MagicalValue = 45, Description = "Powerful Old Wand", OwnerId = "3" };
-            Weapon gumlisWarHammer = new Weapon() { Id = 5, WeaponName = "Gumli's War Hammer", WeaponType = "War Hammer", MagicalValue = 15, Description = "normal War Hammer", OwnerId = "3" };
+            Weapon gimlisAxe = new Weapon() { Id = 1, WeaponName = "Gimli's Axe", WeaponType = "Axe", MagicalValue = 12, Description = "crabbie Old Axe", Owner = "Gimli" };
+            Weapon gimlisSword = new Weapon() { Id = 2, WeaponName = "Gimli's Sword", WeaponType = "Sword", MagicalValue = 15, Description = "Old Sword", Owner = "Gimli" };
+            Weapon zwinglisAxe = new Weapon() { Id = 3, WeaponName = "Zwingli's Axe", WeaponType = "Axe", MagicalValue = 17, Description = "Shiny Axe", Owner = "Zwingli" };
+            Weapon gumlisWand = new Weapon() { Id = 4, WeaponName = "Gumli's Wand", WeaponType = "Wand", MagicalValue = 45, Description = "Powerful Old Wand", Owner = "Gumli" };
+            Weapon gumlisWarHammer = new Weapon() { Id = 5, WeaponName = "Gumli's War Hammer", WeaponType = "War Hammer", MagicalValue = 15, Description = "normal War Hammer", Owner = "Gumli" };
 
             List<Weapon> weapons = new List<Weapon>()
             {

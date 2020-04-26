@@ -14,15 +14,15 @@ namespace Dorfverwaltung_TerminalApp
             int magicalValue = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Hier kannst du eine Beschreibung hinzufuegen");
             string description = Console.ReadLine();
-            Console.WriteLine("Hier kannst du eine Beschreibung hinzufuegen");
-            string ownerId = Console.ReadLine();
+            Console.WriteLine("Welcher Zwerg soll die Waffe bekommen (Namen, achte auf Rechtschreibung)");
+            string owner = Console.ReadLine();
 
             Weapon newWeapon = new Weapon()
             {
                 WeaponType = type,
                 MagicalValue = magicalValue,
                 Description = description,
-                OwnerId = ownerId,
+                Owner = owner,
             };
             return newWeapon;
         }
@@ -30,15 +30,19 @@ namespace Dorfverwaltung_TerminalApp
 
         public override void PrintAll(List<Model> data)
         {
+            int id = 1;
             foreach (Model model in data)
             {
                 if (model is Weapon weapon)
                 {
                     Console.WriteLine(
-                    "\n\tId: " + weapon.WeaponType +
+                    "\n\tId: " + id +
+                    "\n\tType: " + weapon.WeaponName +
+                    "\n\tType: " + weapon.WeaponType +
                     "\n\tName: " + weapon.MagicalValue +
-                    "\n\tAge: " + weapon.Description
+                    "\n\tDescription: " + weapon.Description
                      );
+                    id++;
                 }
             }
         }
@@ -57,16 +61,19 @@ namespace Dorfverwaltung_TerminalApp
             PrintIdAndName(data);
             foreach (Model model in data)
             {
+                int weaponId = 1;
                 if (model is Weapon weapon)
                 {
                     Console.WriteLine("welche Waffe suchst du? (Id eingeben)");
                     int id = IntegerInput();
                     if (id == weapon.Id)
                     {
-                        Console.WriteLine(
-                            "\n\tId: " + weapon.WeaponType +
-                            "\n\tName: " + weapon.MagicalValue +
-                            "\n\tAge: " + weapon.Description
+                    Console.WriteLine(
+                    "\n\tId: " + weaponId +
+                    "\n\tType: " + weapon.WeaponName +
+                    "\n\tType: " + weapon.WeaponType +
+                    "\n\tName: " + weapon.MagicalValue +
+                    "\n\tDescription: " + weapon.Description
                             );
                     }
                     else
@@ -80,13 +87,16 @@ namespace Dorfverwaltung_TerminalApp
 
         private void PrintIdAndName(List<Model> data)
         {
+            int id = 1;
             foreach (Model model in data)
             {
+                
                 if (model is Weapon weapon)
                 {
-                    Console.WriteLine("(Id:{0}) {1} ", weapon.Id, weapon.WeaponType);
-
+                    Console.WriteLine("(Id:{0}) {1} ", id, weapon.WeaponType);
+                    id++;
                 }
+                
             }
         }
     }

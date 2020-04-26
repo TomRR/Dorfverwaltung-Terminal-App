@@ -4,29 +4,29 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp.View
 {
-    class WeaponView : IView
+    class DwarfMenu : IMenu
     {
-        private readonly WeaponController weaponController = new WeaponController();
+        private readonly DwarfController dwarfController = new DwarfController();
         public void EnterMenu(List<Model> data)
         {
             bool furtherOn = true;
             do
             {
-                Console.Write("\nIn which area would you like to carry out an action \n\tAdd Weapon(add)\n\tWeapon Dwarf (remove)\n\tShow Weapon infos (show)\n\tPrint all Weapons (print) \n\tBack (x)\n\t-->");
+                Console.Write("\nIn which area would you like to carry out an action \n\tAdd Dwarf(add)\n\tRemove Dwarf (remove)\n\tShow info Menu (show)\n\tPrint all Dwarfs (print) \n\tBack (x)\n\t-->");
                 string action = Console.ReadLine();
                 switch (action)
                 {
                     case "add":
-                        data.Add(weaponController.AddModel());
+                        data.Add(dwarfController.AddModel());
                         break;
                     case "remove":
-
+                        dwarfController.Remove(data);
                         break;
                     case "show":
-                        weaponController.ShowDetail(data);
+                        dwarfController.ShowDetail(data);
                         break;
                     case "print":
-                        weaponController.PrintAll(data);
+                        dwarfController.PrintAll(data);
                         break;
                     case "x":
                         furtherOn = false;
