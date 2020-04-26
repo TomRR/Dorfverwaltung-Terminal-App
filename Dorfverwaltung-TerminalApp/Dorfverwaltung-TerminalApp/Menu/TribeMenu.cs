@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp.View
 {
-    class TribeView : IView
+    class TribeView : IState
     {
         private readonly TribeController tribeController = new TribeController();
         public void EnterMenu(List<Model> data)
