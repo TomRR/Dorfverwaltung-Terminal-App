@@ -35,7 +35,9 @@ namespace Dorfverwaltung_TerminalApp
                 if (model is Weapon weapon)
                 {
                     Console.WriteLine(
-                    "\n\tId: " + weapon.WeaponType +
+                    "\n\tId: " + weapon.Id +
+                    "\n\tType: " + weapon.WeaponName +
+                    "\n\tType: " + weapon.WeaponType +
                     "\n\tName: " + weapon.MagicalValue +
                     "\n\tAge: " + weapon.Description
                      );

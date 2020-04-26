@@ -20,7 +20,7 @@ namespace Dorfverwaltung_TerminalApp.View
                         data.Add(weaponController.AddModel());
                         break;
                     case "remove":
-
+                        weaponController.Remove(data);
                         break;
                     case "show":
                         weaponController.ShowDetail(data);
