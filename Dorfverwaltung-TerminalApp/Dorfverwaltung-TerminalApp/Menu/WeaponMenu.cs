@@ -4,14 +4,13 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp.View
 {
-    class WeaponMenu : IState
+    class WeaponMenu : IMenu
     {
         private readonly WeaponController weaponController = new WeaponController();
 
         public void EnterMenu(List<Model> weapons)
         {          
             
-
             bool furtherOn = true;
             do
             {

@@ -14,9 +14,16 @@ namespace Dorfverwaltung_TerminalApp.View
         public void EnterMenu(List<Model> data)
         {
             List<Model> weapons = new List<Model>();
+            List<Model> dwarves = new List<Model>();
+            List<Model> tribes = new List<Model>();
+            
             if (weapons.Count == 0)
             {
                 weapons = LoadWeaponList(data);
+            }            
+            if (dwarves.Count == 0)
+            {
+                dwarves = LoadDwarfList(data);
             }
             bool furtherOn = true;
             do
@@ -37,7 +44,7 @@ namespace Dorfverwaltung_TerminalApp.View
                         weaponView.EnterMenu(weapons);
                         break;
                     case "print":
-                        PrintAll(data);
+                        PrintAll(dwarves, weapons);
                         break;
                     case "x":
                         furtherOn = false;
@@ -48,10 +55,11 @@ namespace Dorfverwaltung_TerminalApp.View
                 }
             } while (furtherOn);
         }
-        private void PrintAll(List<Model> data)
+        private void PrintAll(List<Model> dwarves, List<Model> weapons)
         {
-            
-            //Console.WriteLine("die Gesamteinnahmen aus allen Staemmen betraegt: {0}", TotalTaxPerDwarfList());
+
+
+            Console.WriteLine("die Gesamteinnahmen aus allen Staemmen betraegt: {0}", TotalTax(weapons));
             //foreach (Tribe tribe in tribeList)
             //{
             //    tribe.ShowTribeDetail();
@@ -63,7 +71,7 @@ namespace Dorfverwaltung_TerminalApp.View
         {
             return true;//data.OfType<Weapon>;
         }
-        private double TotalTax(List<Weapon> weapons)
+        private double TotalTax(List<Model> weapons)
         {
             int totalMagicalValue = 0;
                 foreach (Weapon weapon in weapons)
@@ -84,6 +92,53 @@ namespace Dorfverwaltung_TerminalApp.View
                 }
             }
             return weapons;
+        }        
+        private List<Model> LoadDwarfList(List<Model> data)
+        {
+            List<Model> dwarves = new List<Model>();
+            foreach (Model model in data)
+            {
+                if (model is Dwarf dwarf)
+                {
+                    dwarves.Add(model);
+                }
+            }
+            return dwarves;
+        }
+
+        public void PrintWeapon(List<Model> data)
+        {
+            int id = 1;
+            foreach (Model model in data)
+            {
+                if (model is Weapon weapon)
+                {
+                    Console.WriteLine(
+                    "\n\tId: " + id +
+                    "\n\tType: " + weapon.WeaponName +
+                    "\n\tType: " + weapon.WeaponType +
+                    "\n\tName: " + weapon.MagicalValue +
+                    "\n\tAge: " + weapon.Description
+                     );
+                    id++;
+                }
+            }
+        }
+        public void PrintDwarf(List<Model> data)
+        {
+            foreach (Model model in data)
+            {
+                if (model is Dwarf dwarf)
+                {
+                    Console.WriteLine(
+                    "\n\tId: " + dwarf.DwarfId +
+                    "\n\tName: " + dwarf.DwarfName +
+                    "\n\tAge: " + dwarf.DwarfAge +
+                    "\n\tTitle: " + dwarf.DwarfTitle +
+                    "\n\tTribe: " + dwarf.DwarfTribe
+                     );
+                }
+            }
         }
 
     }

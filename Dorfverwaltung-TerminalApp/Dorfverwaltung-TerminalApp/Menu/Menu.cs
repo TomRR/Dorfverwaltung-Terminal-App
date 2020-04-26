@@ -8,9 +8,9 @@ namespace Dorfverwaltung_TerminalApp
 {
     class Menu
     {
-        private IState currentController;
+        private IMenu currentController;
         public void EnterMenu(List<Model> data) { currentController.EnterMenu(data); }
-        public void SetMenu(IState currentMenu) { this.currentController = currentMenu; }
+        public void SetMenu(IMenu currentMenu) { this.currentController = currentMenu; }
     }
 }
 

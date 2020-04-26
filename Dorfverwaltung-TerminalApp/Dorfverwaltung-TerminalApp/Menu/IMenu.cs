@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp.View
 {
-    interface IState
+    interface IMenu
     {
         void EnterMenu(List<Model> data);
     }

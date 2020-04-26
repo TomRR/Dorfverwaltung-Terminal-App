@@ -14,15 +14,15 @@ namespace Dorfverwaltung_TerminalApp
             int magicalValue = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Hier kannst du eine Beschreibung hinzufuegen");
             string description = Console.ReadLine();
-            Console.WriteLine("Hier kannst du eine Beschreibung hinzufuegen");
-            string ownerId = Console.ReadLine();
+            Console.WriteLine("Welcher Zwerg soll die Waffe bekommen (Namen, achte auf Rechtschreibung)");
+            string owner = Console.ReadLine();
 
             Weapon newWeapon = new Weapon()
             {
                 WeaponType = type,
                 MagicalValue = magicalValue,
                 Description = description,
-                OwnerId = ownerId,
+                Owner = owner,
             };
             return newWeapon;
         }
@@ -84,15 +84,16 @@ namespace Dorfverwaltung_TerminalApp
 
         private void PrintIdAndName(List<Model> data)
         {
+            int id = 1;
             foreach (Model model in data)
             {
-                int i = 1;
+                
                 if (model is Weapon weapon)
                 {
-                    Console.WriteLine("(Id:{0}) {1} ", i, weapon.WeaponType);
-
+                    Console.WriteLine("(Id:{0}) {1} ", id, weapon.WeaponType);
+                    id++;
                 }
-                i++;
+                
             }
         }
     }
