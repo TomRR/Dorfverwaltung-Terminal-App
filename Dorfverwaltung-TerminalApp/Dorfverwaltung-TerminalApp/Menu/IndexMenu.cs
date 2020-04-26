@@ -5,14 +5,19 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp.View
 {
-    class _IndexView : IView
+    class IndexMenu : IMenu
     {
         private static readonly double taxRate = 2.125;
-        private readonly DwarfView dwarfView = new DwarfView();
-        private readonly TribeView tribeView = new TribeView();
-        private readonly WeaponView weaponView = new WeaponView();
+        private readonly DwarfMenu dwarfView = new DwarfMenu();
+        private readonly TribeMenu tribeView = new TribeMenu();
+        private readonly WeaponMenu weaponView = new WeaponMenu();
         public void EnterMenu(List<Model> data)
         {
+            List<Model> weapons = new List<Model>();
+            if (weapons.Count == 0)
+            {
+                weapons = LoadWeaponList(data);
+            }
             bool furtherOn = true;
             do
             {
@@ -29,7 +34,7 @@ namespace Dorfverwaltung_TerminalApp.View
                         tribeView.EnterMenu(data);
                         break;
                     case "weapon":
-                        weaponView.EnterMenu(data);
+                        weaponView.EnterMenu(weapons);
                         break;
                     case "print":
                         PrintAll(data);
@@ -67,6 +72,18 @@ namespace Dorfverwaltung_TerminalApp.View
                 }
 
             return totalMagicalValue * taxRate;
+        }
+        private List<Model> LoadWeaponList(List<Model> data)
+        {
+            List<Model> weapons = new List<Model>();
+            foreach (Model model in data)
+            {
+                if (model is Weapon waeapon)
+                {
+                    weapons.Add(model);
+                }
+            }
+            return weapons;
         }
 
     }

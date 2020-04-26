@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp.View
 {
-    class DwarfView : IView
+    class DwarfMenu : IState
     {
         private readonly DwarfController dwarfController = new DwarfController();
         public void EnterMenu(List<Model> data)

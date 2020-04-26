@@ -13,13 +13,13 @@ namespace Dorfverwaltung_TerminalApp
             Menu menu = new Menu();
             Data data = new Data();
 
-            menu.setMenu(new _IndexView());
+            menu.SetMenu(new IndexMenu());
          
             List<Model> kingdomData = data.GetKingdomData();
-            foreach(Model model in kingdomData)
-            {
-                Console.WriteLine(model);
-            }
+            //foreach(Model model in kingdomData)
+            //{
+            //    Console.WriteLine(model);
+            //}
             menu.EnterMenu(kingdomData);
         }
     }

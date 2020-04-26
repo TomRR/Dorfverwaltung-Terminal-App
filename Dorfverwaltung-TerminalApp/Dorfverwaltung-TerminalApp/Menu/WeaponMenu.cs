@@ -4,11 +4,14 @@ using System.Text;
 
 namespace Dorfverwaltung_TerminalApp.View
 {
-    class WeaponView : IView
+    class WeaponMenu : IState
     {
         private readonly WeaponController weaponController = new WeaponController();
-        public void EnterMenu(List<Model> data)
-        {
+
+        public void EnterMenu(List<Model> weapons)
+        {          
+            
+
             bool furtherOn = true;
             do
             {
@@ -17,16 +20,16 @@ namespace Dorfverwaltung_TerminalApp.View
                 switch (action)
                 {
                     case "add":
-                        data.Add(weaponController.AddModel());
+                        weapons.Add(weaponController.AddModel());
                         break;
                     case "remove":
-                        weaponController.Remove(data);
+                        weaponController.Remove(weapons);
                         break;
                     case "show":
-                        weaponController.ShowDetail(data);
+                        weaponController.ShowDetail(weapons);
                         break;
                     case "print":
-                        weaponController.PrintAll(data);
+                        weaponController.PrintAll(weapons);
                         break;
                     case "x":
                         furtherOn = false;

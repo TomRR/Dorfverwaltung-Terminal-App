@@ -30,17 +30,19 @@ namespace Dorfverwaltung_TerminalApp
 
         public override void PrintAll(List<Model> data)
         {
+            int id = 1;
             foreach (Model model in data)
             {
                 if (model is Weapon weapon)
                 {
                     Console.WriteLine(
-                    "\n\tId: " + weapon.Id +
+                    "\n\tId: " + id +
                     "\n\tType: " + weapon.WeaponName +
                     "\n\tType: " + weapon.WeaponType +
                     "\n\tName: " + weapon.MagicalValue +
                     "\n\tAge: " + weapon.Description
                      );
+                    id++;
                 }
             }
         }
@@ -84,11 +86,13 @@ namespace Dorfverwaltung_TerminalApp
         {
             foreach (Model model in data)
             {
+                int i = 1;
                 if (model is Weapon weapon)
                 {
-                    Console.WriteLine("(Id:{0}) {1} ", weapon.Id, weapon.WeaponType);
+                    Console.WriteLine("(Id:{0}) {1} ", i, weapon.WeaponType);
 
                 }
+                i++;
             }
         }
     }
