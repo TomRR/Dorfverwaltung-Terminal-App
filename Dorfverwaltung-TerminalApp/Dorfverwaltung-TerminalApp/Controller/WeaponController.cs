@@ -40,7 +40,7 @@ namespace Dorfverwaltung_TerminalApp
                     "\n\tType: " + weapon.WeaponName +
                     "\n\tType: " + weapon.WeaponType +
                     "\n\tName: " + weapon.MagicalValue +
-                    "\n\tAge: " + weapon.Description
+                    "\n\tDescription: " + weapon.Description
                      );
                     id++;
                 }
@@ -61,16 +61,19 @@ namespace Dorfverwaltung_TerminalApp
             PrintIdAndName(data);
             foreach (Model model in data)
             {
+                int weaponId = 1;
                 if (model is Weapon weapon)
                 {
                     Console.WriteLine("welche Waffe suchst du? (Id eingeben)");
                     int id = IntegerInput();
                     if (id == weapon.Id)
                     {
-                        Console.WriteLine(
-                            "\n\tId: " + weapon.WeaponType +
-                            "\n\tName: " + weapon.MagicalValue +
-                            "\n\tAge: " + weapon.Description
+                    Console.WriteLine(
+                    "\n\tId: " + weaponId +
+                    "\n\tType: " + weapon.WeaponName +
+                    "\n\tType: " + weapon.WeaponType +
+                    "\n\tName: " + weapon.MagicalValue +
+                    "\n\tDescription: " + weapon.Description
                             );
                     }
                     else

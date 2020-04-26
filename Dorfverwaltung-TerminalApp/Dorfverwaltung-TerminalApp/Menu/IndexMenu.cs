@@ -28,6 +28,7 @@ namespace Dorfverwaltung_TerminalApp.View
             bool furtherOn = true;
             do
             {
+                Console.WriteLine("die Gesamteinnahmen aus allen Staemmen betraegt: {0}", TotalTax(weapons));
 
                 string action;
                 Console.Write("\nIn which area would you like to carry out an action \n\tDwarf Menu (dwarf)\n\tTribe Menu (tribe)\n\tWeapon Menu (weapon)\n\tPrint all (print) \n\tExit (x)\n\t-->");
@@ -44,7 +45,7 @@ namespace Dorfverwaltung_TerminalApp.View
                         weaponView.EnterMenu(weapons);
                         break;
                     case "print":
-                        PrintAll(dwarves, weapons);
+                        PrintAll(data);
                         break;
                     case "x":
                         furtherOn = false;
@@ -55,22 +56,31 @@ namespace Dorfverwaltung_TerminalApp.View
                 }
             } while (furtherOn);
         }
-        private void PrintAll(List<Model> dwarves, List<Model> weapons)
+        private void PrintAll(List<Model> data)
         {
-
-
-            Console.WriteLine("die Gesamteinnahmen aus allen Staemmen betraegt: {0}", TotalTax(weapons));
-            //foreach (Tribe tribe in tribeList)
-            //{
-            //    tribe.ShowTribeDetail();
-            //}
-            //List<Weapon> weapons = data.FindAll()
-            //TotalTax()
-        }
-        private bool FindWeapons(List<Model> data)
-        {
-            return true;//data.OfType<Weapon>;
-        }
+            int idDwarf = 1;
+            List<Model> weapons = LoadWeaponList(data);
+            List<Model> dwarves = LoadDwarfList(data);
+            foreach(Dwarf dwarf in dwarves)
+            {
+                Console.WriteLine(
+                    "\n\tId: " + idDwarf +
+                    "\n\tName: " + dwarf.DwarfName +
+                    "\n\tAge: " + dwarf.DwarfAge +
+                    "\n\tTitle: " + dwarf.DwarfTitle +
+                    "\n\tTribe: " + dwarf.DwarfTribe +
+                    "\n" +
+                    PrintWeapon(weapons, dwarf)
+                     );
+                idDwarf++;
+            }
+                //foreach (Tribe tribe in tribeList)
+                //{
+                //    tribe.ShowTribeDetail();
+                //}
+                //List<Weapon> weapons = data.FindAll()
+                //TotalTax()
+            }
         private double TotalTax(List<Model> weapons)
         {
             int totalMagicalValue = 0;
@@ -106,40 +116,31 @@ namespace Dorfverwaltung_TerminalApp.View
             return dwarves;
         }
 
-        public void PrintWeapon(List<Model> data)
+        public StringBuilder PrintWeapon(List<Model> weapons, Dwarf dwarf)
         {
-            int id = 1;
-            foreach (Model model in data)
+            StringBuilder sb = new StringBuilder();
+
+            foreach (Weapon weapon in weapons)
             {
-                if (model is Weapon weapon)
+                string weaponOwner = weapon.Owner.ToLower();
+                string dwarfName = dwarf.DwarfName.ToLower();
+                bool isDwarfWeaponOwner = weaponOwner.Equals(dwarfName);
+
+                if (isDwarfWeaponOwner)
                 {
-                    Console.WriteLine(
-                    "\n\tId: " + id +
-                    "\n\tType: " + weapon.WeaponName +
-                    "\n\tType: " + weapon.WeaponType +
-                    "\n\tName: " + weapon.MagicalValue +
-                    "\n\tAge: " + weapon.Description
-                     );
-                    id++;
+                    sb.Append(
+                    "\n\t\tWeaponName: " + weapon.WeaponName +
+                    "\n\t\tType: " + weapon.WeaponType +
+                    "\n\t\tMagicalValue: " + weapon.MagicalValue +
+                    "\n\t\tDescription: " + weapon.Description +
+                    "\n"
+                    );
                 }
+                
             }
-        }
-        public void PrintDwarf(List<Model> data)
-        {
-            foreach (Model model in data)
-            {
-                if (model is Dwarf dwarf)
-                {
-                    Console.WriteLine(
-                    "\n\tId: " + dwarf.DwarfId +
-                    "\n\tName: " + dwarf.DwarfName +
-                    "\n\tAge: " + dwarf.DwarfAge +
-                    "\n\tTitle: " + dwarf.DwarfTitle +
-                    "\n\tTribe: " + dwarf.DwarfTribe
-                     );
-                }
+            return sb;
             }
         }
 
     }
-}
+
