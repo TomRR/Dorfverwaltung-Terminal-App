@@ -20,7 +20,6 @@ namespace Dorfverwaltung_TerminalApp
             string tribe = StringInput();
             Dwarf newDwarf = new Dwarf()
             {
-                DwarfId = 1,
                 DwarfName = name,
                 DwarfAge = age,
                 DwarfTitle = title,
@@ -34,17 +33,19 @@ namespace Dorfverwaltung_TerminalApp
 
         public override void PrintAll(List<Model> data)
         {
+            int id = 1;
             foreach (Model model in data)
             {
                 if (model is Dwarf dwarf)
                 {
                     Console.WriteLine(
-                    "\n\tId: " + dwarf.DwarfId +
+                    "\n\tId: " + id +
                     "\n\tName: " + dwarf.DwarfName +
                     "\n\tAge: " + dwarf.DwarfAge +
                     "\n\tTitle: " + dwarf.DwarfTitle +
                     "\n\tTribe: " + dwarf.DwarfTribe
                      );
+                    id++;
                 }
             }
         }
@@ -72,12 +73,12 @@ namespace Dorfverwaltung_TerminalApp
                     if (name == dwarf.DwarfName.ToLower())
                     {
                         Console.WriteLine(
-                        "\n\tId: " + dwarf.DwarfId +
                         "\n\tName: " + dwarf.DwarfName +
                         "\n\tAge: " + dwarf.DwarfAge +
                         "\n\tTitle: " + dwarf.DwarfTitle +
                         "\n\tTribe: " + dwarf.DwarfTribe
                          );
+                        break;
                     }
                     else
                     {
@@ -89,13 +90,14 @@ namespace Dorfverwaltung_TerminalApp
         }
         private void GetDwarfIdAndName(List<Model> data)
         {
+            int id = 1;
             foreach (Model model in data)
             {
                 if (model is Dwarf dwarf)
                 {
-                    Console.WriteLine("(Id:{0}) {1} ", dwarf.DwarfId, dwarf.DwarfName);
-                    
+                    Console.WriteLine("(Id:{0}) {1} ", id, dwarf.DwarfName);                    
                 }
+                id++;
             }
         }
     }

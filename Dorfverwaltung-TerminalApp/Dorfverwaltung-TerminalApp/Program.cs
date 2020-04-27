@@ -14,12 +14,8 @@ namespace Dorfverwaltung_TerminalApp
             Data data = new Data();
 
             menu.SetMenu(new IndexMenu());
-         
             List<Model> kingdomData = data.GetKingdomData();
-            //foreach(Model model in kingdomData)
-            //{
-            //    Console.WriteLine(model);
-            //}
+
             menu.EnterMenu(kingdomData);
         }
     }

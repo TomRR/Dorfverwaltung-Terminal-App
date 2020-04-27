@@ -13,36 +13,22 @@ namespace Dorfverwaltung_TerminalApp.View
         private readonly WeaponMenu weaponView = new WeaponMenu();
         public List<Model> EnterMenu(List<Model> data)
         {
-            //List<Model> weapons = new List<Model>();
-            //List<Model> dwarves = new List<Model>();
-            //List<Model> tribes = new List<Model>();
-            //List<Model> kingdom = data;
-
-
-            //if (weapons.Count == 0)
-            //{
-            //    weapons = LoadWeaponList(data);
-            //}            
-            //if (dwarves.Count == 0)
-            //{
-            //    dwarves = LoadDwarfList(data);
-            //}
             bool furtherOn = true;
             do
             {
                 Console.WriteLine("die Gesamteinnahmen aus allen Staemmen betraegt: {0}", TotalTax(data));
 
                 string action;
-                Console.Write("\nIn which area would you like to carry out an action \n\tDwarf Menu (dwarf)\n\tTribe Menu (tribe)\n\tWeapon Menu (weapon)\n\tPrint all (print) \n\tExit (x)\n\t-->");
+                Console.Write("\nIn which area would you like to carry out an action \n\tDwarf Menu (dwarf)\n\tWeapon Menu (weapon)\n\tPrint all (print) \n\tExit (x)\n\t-->");
                 action = Console.ReadLine();
                 switch (action)
                 {
                     case "dwarf":
                         data = dwarfView.EnterMenu(data);
                         break;
-                    case "tribe":
-                        data = tribeView.EnterMenu(data);
-                        break;
+                    //case "tribe":
+                    //    data = tribeView.EnterMenu(data);
+                    //    break;
                     case "weapon":
                         data = weaponView.EnterMenu(data);
                         break;

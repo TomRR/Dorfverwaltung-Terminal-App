@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Dorfverwaltung_TerminalApp
@@ -59,28 +60,30 @@ namespace Dorfverwaltung_TerminalApp
         public override void ShowDetail(List<Model> data)
         {
             PrintIdAndName(data);
+
             foreach (Model model in data)
             {
-                int weaponId = 1;
                 if (model is Weapon weapon)
                 {
+
                     Console.WriteLine("welche Waffe suchst du? (Id eingeben)");
                     int id = IntegerInput();
-                    if (id == weapon.Id)
+                    Model w = data.ElementAt(id);
+                    
+                        if (id == weapon.WeaponName)
                     {
-                    Console.WriteLine(
-                    "\n\tId: " + weaponId +
-                    "\n\tType: " + weapon.WeaponName +
-                    "\n\tType: " + weapon.WeaponType +
-                    "\n\tName: " + weapon.MagicalValue +
-                    "\n\tDescription: " + weapon.Description
-                            );
+                        Console.WriteLine(
+                        "\n\tType: " + weapon.WeaponName +
+                        "\n\tType: " + weapon.WeaponType +
+                        "\n\tName: " + weapon.MagicalValue +
+                        "\n\tDescription: " + weapon.Description
+                                );
+                        break;
                     }
                     else
                     {
-                        Console.WriteLine("Waffe konnte nicht gefunden werden. Versuch es erneut oder druecke X");
+                        Console.WriteLine("Waffe konnte nicht gefunden werden.");
                     }
-
                 }
             }
         }

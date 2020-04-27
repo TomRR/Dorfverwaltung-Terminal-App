@@ -8,11 +8,11 @@ namespace Dorfverwaltung_TerminalApp
     {
         private List<Weapon> getWeaponList()
         {
-            Weapon gimlisAxe = new Weapon() { Id = 1, WeaponName = "Gimli's Axe", WeaponType = "Axe", MagicalValue = 12, Description = "crabbie Old Axe", Owner = "Gimli" };
-            Weapon gimlisSword = new Weapon() { Id = 2, WeaponName = "Gimli's Sword", WeaponType = "Sword", MagicalValue = 15, Description = "Old Sword", Owner = "Gimli" };
-            Weapon zwinglisAxe = new Weapon() { Id = 3, WeaponName = "Zwingli's Axe", WeaponType = "Axe", MagicalValue = 17, Description = "Shiny Axe", Owner = "Zwingli" };
-            Weapon gumlisWand = new Weapon() { Id = 4, WeaponName = "Gumli's Wand", WeaponType = "Wand", MagicalValue = 45, Description = "Powerful Old Wand", Owner = "Gumli" };
-            Weapon gumlisWarHammer = new Weapon() { Id = 5, WeaponName = "Gumli's War Hammer", WeaponType = "War Hammer", MagicalValue = 15, Description = "normal War Hammer", Owner = "Gumli" };
+            Weapon gimlisAxe = new Weapon() { WeaponName = "Gimli's Axe", WeaponType = "Axe", MagicalValue = 12, Description = "crabbie Old Axe", Owner = "Gimli" };
+            Weapon gimlisSword = new Weapon() { WeaponName = "Gimli's Sword", WeaponType = "Sword", MagicalValue = 15, Description = "Old Sword", Owner = "Gimli" };
+            Weapon zwinglisAxe = new Weapon() { WeaponName = "Zwingli's Axe", WeaponType = "Axe", MagicalValue = 17, Description = "Shiny Axe", Owner = "Zwingli" };
+            Weapon gumlisWand = new Weapon() { WeaponName = "Gumli's Wand", WeaponType = "Wand", MagicalValue = 45, Description = "Powerful Old Wand", Owner = "Gumli" };
+            Weapon gumlisWarHammer = new Weapon() { WeaponName = "Gumli's War Hammer", WeaponType = "War Hammer", MagicalValue = 15, Description = "normal War Hammer", Owner = "Gumli" };
 
             List<Weapon> weapons = new List<Weapon>()
             {
@@ -25,7 +25,6 @@ namespace Dorfverwaltung_TerminalApp
         {
             Dwarf gimli = new Dwarf()
             {
-                DwarfId = 1,
                 DwarfName = "Gimli",
                 DwarfAge = 140,
                 DwarfTribe = "Altobarden",
@@ -33,7 +32,6 @@ namespace Dorfverwaltung_TerminalApp
             };
             Dwarf zwingli = new Dwarf()
             {
-                DwarfId = 2,
                 DwarfName = "Zwingli",
                 DwarfAge = 70,
                 DwarfTribe = "Altobarden",
@@ -41,7 +39,6 @@ namespace Dorfverwaltung_TerminalApp
             };
             Dwarf gumli = new Dwarf()
             {
-                DwarfId = 3,
                 DwarfName = "Gumli",
                 DwarfAge = 163,
                 DwarfTitle = "Dwarf-Veteran",
