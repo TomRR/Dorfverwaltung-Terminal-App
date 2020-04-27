@@ -8,7 +8,7 @@ namespace Dorfverwaltung_TerminalApp.View
     {
         private readonly WeaponController weaponController = new WeaponController();
 
-        public void EnterMenu(List<Model> weapons)
+        public List<Model> EnterMenu(List<Model> data)
         {          
             
             bool furtherOn = true;
@@ -19,16 +19,16 @@ namespace Dorfverwaltung_TerminalApp.View
                 switch (action)
                 {
                     case "add":
-                        weapons.Add(weaponController.AddModel());
+                        data.Add(weaponController.AddModel());
                         break;
                     case "remove":
-                        weaponController.Remove(weapons);
+                        weaponController.Remove(data);
                         break;
                     case "show":
-                        weaponController.ShowDetail(weapons);
+                        weaponController.ShowDetail(data);
                         break;
                     case "print":
-                        weaponController.PrintAll(weapons);
+                        weaponController.PrintAll(data);
                         break;
                     case "x":
                         furtherOn = false;
@@ -38,6 +38,7 @@ namespace Dorfverwaltung_TerminalApp.View
                         break;
                 }
             } while (furtherOn);
+            return data;
         }
     }
 }

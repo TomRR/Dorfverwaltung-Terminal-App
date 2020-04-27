@@ -11,24 +11,26 @@ namespace Dorfverwaltung_TerminalApp.View
         private readonly DwarfMenu dwarfView = new DwarfMenu();
         private readonly TribeMenu tribeView = new TribeMenu();
         private readonly WeaponMenu weaponView = new WeaponMenu();
-        public void EnterMenu(List<Model> data)
+        public List<Model> EnterMenu(List<Model> data)
         {
-            List<Model> weapons = new List<Model>();
-            List<Model> dwarves = new List<Model>();
-            List<Model> tribes = new List<Model>();
-            
-            if (weapons.Count == 0)
-            {
-                weapons = LoadWeaponList(data);
-            }            
-            if (dwarves.Count == 0)
-            {
-                dwarves = LoadDwarfList(data);
-            }
+            //List<Model> weapons = new List<Model>();
+            //List<Model> dwarves = new List<Model>();
+            //List<Model> tribes = new List<Model>();
+            //List<Model> kingdom = data;
+
+
+            //if (weapons.Count == 0)
+            //{
+            //    weapons = LoadWeaponList(data);
+            //}            
+            //if (dwarves.Count == 0)
+            //{
+            //    dwarves = LoadDwarfList(data);
+            //}
             bool furtherOn = true;
             do
             {
-                Console.WriteLine("die Gesamteinnahmen aus allen Staemmen betraegt: {0}", TotalTax(weapons));
+                Console.WriteLine("die Gesamteinnahmen aus allen Staemmen betraegt: {0}", TotalTax(data));
 
                 string action;
                 Console.Write("\nIn which area would you like to carry out an action \n\tDwarf Menu (dwarf)\n\tTribe Menu (tribe)\n\tWeapon Menu (weapon)\n\tPrint all (print) \n\tExit (x)\n\t-->");
@@ -36,13 +38,13 @@ namespace Dorfverwaltung_TerminalApp.View
                 switch (action)
                 {
                     case "dwarf":
-                        dwarfView.EnterMenu(data);
+                        data = dwarfView.EnterMenu(data);
                         break;
                     case "tribe":
-                        tribeView.EnterMenu(data);
+                        data = tribeView.EnterMenu(data);
                         break;
                     case "weapon":
-                        weaponView.EnterMenu(weapons);
+                        data = weaponView.EnterMenu(data);
                         break;
                     case "print":
                         PrintAll(data);
@@ -55,12 +57,20 @@ namespace Dorfverwaltung_TerminalApp.View
                         break;
                 }
             } while (furtherOn);
+            return data;
         }
         private void PrintAll(List<Model> data)
         {
             int idDwarf = 1;
             List<Model> weapons = LoadWeaponList(data);
             List<Model> dwarves = LoadDwarfList(data);
+            foreach(Model model in data)
+            {
+                if(model is Tribe tribe)
+                {
+                    PrintTribe(model);
+                }
+            }
             foreach(Dwarf dwarf in dwarves)
             {
                 Console.WriteLine(
@@ -81,14 +91,26 @@ namespace Dorfverwaltung_TerminalApp.View
                 //List<Weapon> weapons = data.FindAll()
                 //TotalTax()
             }
-        private double TotalTax(List<Model> weapons)
+        private void PrintTribe(Model tribeModels)
         {
+            //if(tribeModels is Tribe tribe)
+            //{
+            //    tribes.
+            //}
+        }
+        private double TotalTax(List<Model> data)
+        {
+            int weaponsInTheArmoury = 0;
             int totalMagicalValue = 0;
-                foreach (Weapon weapon in weapons)
+                foreach (Model model in data)
+                {
+                if (model is Weapon weapon)
                 {
                     totalMagicalValue += weapon.MagicalValue;
+                    weaponsInTheArmoury++;
+                }              
                 }
-
+            Console.WriteLine("there are {0} weapons in the armory", weaponsInTheArmoury);
             return totalMagicalValue * taxRate;
         }
         private List<Model> LoadWeaponList(List<Model> data)
@@ -116,7 +138,7 @@ namespace Dorfverwaltung_TerminalApp.View
             return dwarves;
         }
 
-        public StringBuilder PrintWeapon(List<Model> weapons, Dwarf dwarf)
+        private StringBuilder PrintWeapon(List<Model> weapons, Dwarf dwarf)
         {
             StringBuilder sb = new StringBuilder();
 
