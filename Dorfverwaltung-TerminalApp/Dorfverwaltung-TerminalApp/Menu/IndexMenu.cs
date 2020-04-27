@@ -41,10 +41,10 @@ namespace Dorfverwaltung_TerminalApp.View
                         data = dwarfView.EnterMenu(data);
                         break;
                     case "tribe":
-                        tribeView.EnterMenu(data);
+                        data = tribeView.EnterMenu(data);
                         break;
                     case "weapon":
-                        weaponView.EnterMenu(weapons);
+                        data = weaponView.EnterMenu(data);
                         break;
                     case "print":
                         PrintAll(data);
@@ -68,7 +68,7 @@ namespace Dorfverwaltung_TerminalApp.View
             {
                 if(model is Tribe tribe)
                 {
-
+                    PrintTribe(model);
                 }
             }
             foreach(Dwarf dwarf in dwarves)
@@ -91,6 +91,13 @@ namespace Dorfverwaltung_TerminalApp.View
                 //List<Weapon> weapons = data.FindAll()
                 //TotalTax()
             }
+        private void PrintTribe(Model tribeModels)
+        {
+            //if(tribeModels is Tribe tribe)
+            //{
+            //    tribes.
+            //}
+        }
         private double TotalTax(List<Model> weapons)
         {
             int totalMagicalValue = 0;
