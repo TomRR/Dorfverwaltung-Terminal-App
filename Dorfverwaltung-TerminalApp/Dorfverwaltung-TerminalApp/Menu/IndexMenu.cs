@@ -100,14 +100,17 @@ namespace Dorfverwaltung_TerminalApp.View
         }
         private double TotalTax(List<Model> data)
         {
+            int weaponsInTheArmoury = 0;
             int totalMagicalValue = 0;
                 foreach (Model model in data)
                 {
                 if (model is Weapon weapon)
                 {
                     totalMagicalValue += weapon.MagicalValue;
+                    weaponsInTheArmoury++;
                 }              
                 }
+            Console.WriteLine("there are {0} weapons in the armory", weaponsInTheArmoury);
             return totalMagicalValue * taxRate;
         }
         private List<Model> LoadWeaponList(List<Model> data)
