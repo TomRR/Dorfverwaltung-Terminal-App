@@ -13,24 +13,24 @@ namespace Dorfverwaltung_TerminalApp.View
         private readonly WeaponMenu weaponView = new WeaponMenu();
         public List<Model> EnterMenu(List<Model> data)
         {
-            List<Model> weapons = new List<Model>();
-            List<Model> dwarves = new List<Model>();
-            List<Model> tribes = new List<Model>();
-            List<Model> kingdom = data;
+            //List<Model> weapons = new List<Model>();
+            //List<Model> dwarves = new List<Model>();
+            //List<Model> tribes = new List<Model>();
+            //List<Model> kingdom = data;
 
 
-            if (weapons.Count == 0)
-            {
-                weapons = LoadWeaponList(data);
-            }            
-            if (dwarves.Count == 0)
-            {
-                dwarves = LoadDwarfList(data);
-            }
+            //if (weapons.Count == 0)
+            //{
+            //    weapons = LoadWeaponList(data);
+            //}            
+            //if (dwarves.Count == 0)
+            //{
+            //    dwarves = LoadDwarfList(data);
+            //}
             bool furtherOn = true;
             do
             {
-                Console.WriteLine("die Gesamteinnahmen aus allen Staemmen betraegt: {0}", TotalTax(weapons));
+                Console.WriteLine("die Gesamteinnahmen aus allen Staemmen betraegt: {0}", TotalTax(data));
 
                 string action;
                 Console.Write("\nIn which area would you like to carry out an action \n\tDwarf Menu (dwarf)\n\tTribe Menu (tribe)\n\tWeapon Menu (weapon)\n\tPrint all (print) \n\tExit (x)\n\t-->");
@@ -98,14 +98,16 @@ namespace Dorfverwaltung_TerminalApp.View
             //    tribes.
             //}
         }
-        private double TotalTax(List<Model> weapons)
+        private double TotalTax(List<Model> data)
         {
             int totalMagicalValue = 0;
-                foreach (Weapon weapon in weapons)
+                foreach (Model model in data)
+                {
+                if (model is Weapon weapon)
                 {
                     totalMagicalValue += weapon.MagicalValue;
+                }              
                 }
-
             return totalMagicalValue * taxRate;
         }
         private List<Model> LoadWeaponList(List<Model> data)
